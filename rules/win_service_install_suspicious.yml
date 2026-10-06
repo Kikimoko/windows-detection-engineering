@@ -1,0 +1,31 @@
+title: Service installed from an unusual path or known remote-exec service
+id: win_service_install_suspicious
+status: experimental
+description: System 7045 / Security 4697 service install by PsExec-like or temp/unusual binaries.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID:
+    - 7045
+    - 4697
+  suspicious:
+    Message|contains:
+    - PSEXESVC
+    - \\127.0.0.1\
+    - \ADMIN$\
+    - '%COMSPEC%'
+    - \Temp\
+    - \AppData\
+    - GruntHTTP
+    - powershell
+    - cmd.exe /c
+  condition: selection and suspicious
+falsepositives:
+- Software installers
+level: high
+tags:
+- attack.lateral_movement
+- attack.t1021.002
+- attack.t1569.002
+- attack.t1543.003

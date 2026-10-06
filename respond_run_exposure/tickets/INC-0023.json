@@ -1,0 +1,31 @@
+{
+ "incident": "INC-0023",
+ "host": "workstation5",
+ "first_seen": "2020-07-22 03:27:52.809000",
+ "last_seen": "2020-07-22 03:27:53.498000",
+ "alerts": 3,
+ "rules_fired": [
+  "Signed binary proxy execution with suspicious arguments",
+  "Suspicious PowerShell command line"
+ ],
+ "attack_ids": [
+  "T1059.001",
+  "T1218"
+ ],
+ "tactics": [
+  "Defense Evasion",
+  "Execution"
+ ],
+ "users": [
+  "MORDOR\\pgustavo",
+  "pgustavo"
+ ],
+ "priority": "P1",
+ "summary": "3 alerts on host workstation5 between 2020-07-22 03:27:52.809000 and 2020-07-22 03:27:53.498000 across 2 rule(s): Signed binary proxy execution with suspicious arguments; Suspicious PowerShell command line. ATT&CK: T1059.001, T1218 (Defense Evasion, Execution). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers",
+  "Collect the script/command content; identify the parent process"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

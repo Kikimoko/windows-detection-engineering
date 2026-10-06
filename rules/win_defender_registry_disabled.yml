@@ -1,0 +1,26 @@
+title: Windows Defender disabled in the registry
+id: win_defender_registry_disabled
+status: experimental
+description: Sysmon registry-set on Defender policy keys with value 1.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 13
+    TargetObject|contains:
+    - \Windows Defender\
+    - \Policies\Microsoft\Windows Defender
+    TargetObject|endswith:
+    - \DisableAntiSpyware
+    - \DisableRealtimeMonitoring
+    - \DisableBehaviorMonitoring
+    - \DisableIOAVProtection
+    Details|contains: '0x00000001'
+    Channel|contains: sysmon
+  condition: selection
+falsepositives:
+- Administrative tools
+level: high
+tags:
+- attack.defense_evasion
+- attack.t1562.001

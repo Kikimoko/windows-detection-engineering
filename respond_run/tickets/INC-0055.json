@@ -1,0 +1,25 @@
+{
+ "incident": "INC-0055",
+ "host": "workstation5",
+ "first_seen": "2020-10-22 08:29:53.443000",
+ "last_seen": "2020-10-22 08:29:53.443000",
+ "alerts": 7,
+ "rules_fired": [
+  "Burst of failed logons on one host"
+ ],
+ "attack_ids": [
+  "T1110"
+ ],
+ "tactics": [
+  "Credential Access"
+ ],
+ "users": [
+  "pgustavo"
+ ],
+ "priority": "P2",
+ "summary": "7 alerts on host workstation5 between 2020-10-22 08:29:53.443000 and 2020-10-22 08:29:53.443000 across 1 rule(s): Burst of failed logons on one host. ATT&CK: T1110 (Credential Access). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence"
+ ]
+}

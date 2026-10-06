@@ -1,0 +1,59 @@
+{
+ "incident": "INC-0006",
+ "host": "dc01",
+ "first_seen": "2023-07-20 00:33:01.648000",
+ "last_seen": "2023-07-20 00:33:01.648000",
+ "alerts": 1,
+ "rules_fired": [
+  "Suspicious PowerShell command line"
+ ],
+ "attack_ids": [
+  "T1059.001"
+ ],
+ "tactics": [
+  "Execution"
+ ],
+ "users": [
+  "PANDALAB\\Administrator"
+ ],
+ "priority": "P1",
+ "summary": "1 alerts on host dc01 between 2023-07-20 00:33:01.648000 and 2023-07-20 00:33:01.648000 across 1 rule(s): Suspicious PowerShell command line. ATT&CK: T1059.001 (Execution). Policy priority P1. Host exposure CRITICAL: CVE-2020-1472 (known exploited). Priority raised from P2 to P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Patch CVE-2020-1472 on dc01 ahead of routine patching (known exploited in the wild, used in ransomware; CISA due 2022-05-03 - already overdue when the incident happened; asset criticality critical)",
+  "Collect the script/command content; identify the parent process"
+ ],
+ "exposure": {
+  "tier": "CRITICAL",
+  "open_cves": 1,
+  "kev_cves": [
+   "CVE-2020-1472"
+  ],
+  "top": [
+   {
+    "cve": "CVE-2020-1472",
+    "kev": true,
+    "cvss": 5.5,
+    "risk_score": 0.003,
+    "relevant": false,
+    "ransomware": true,
+    "criticality": "critical",
+    "internet_facing": false,
+    "patch_due": "2022-05-03",
+    "overdue_at_incident": true
+   }
+  ],
+  "relevant": false,
+  "skipped": {
+   "not_yet_published": 0,
+   "patched_before": 0,
+   "not_yet_seen": 0
+  },
+  "cves_without_score": [],
+  "would_raise": true,
+  "raise_granted": true,
+  "raise_denied": false
+ },
+ "alert_priority_before_exposure": "P2",
+ "containment": "REFUSED: critical host (domain controller) - human-only decision"
+}

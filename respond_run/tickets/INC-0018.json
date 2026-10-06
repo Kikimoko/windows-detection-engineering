@@ -1,0 +1,26 @@
+{
+ "incident": "INC-0018",
+ "host": "pedro01",
+ "first_seen": "2022-08-04 14:51:04.726000",
+ "last_seen": "2022-08-04 14:51:04.726000",
+ "alerts": 1,
+ "rules_fired": [
+  "Defences disabled from the command line"
+ ],
+ "attack_ids": [
+  "T1562.001",
+  "T1562.002"
+ ],
+ "tactics": [
+  "Defense Evasion"
+ ],
+ "users": [
+  "PEDRO01\\pedro"
+ ],
+ "priority": "P2",
+ "summary": "1 alerts on host pedro01 between 2022-08-04 14:51:04.726000 and 2022-08-04 14:51:04.726000 across 1 rule(s): Defences disabled from the command line. ATT&CK: T1562.001, T1562.002 (Defense Evasion). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ]
+}

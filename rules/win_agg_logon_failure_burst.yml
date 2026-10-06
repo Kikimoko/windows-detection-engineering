@@ -1,0 +1,18 @@
+title: Burst of failed logons on one host
+id: win_agg_logon_failure_burst
+status: experimental-untested
+version: 1
+description: '5 or more Security 4625 failures on one host within 60 seconds (password guessing / spraying). Not validated against real brute-force ground truth: the dataset has none.'
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 4625
+  timeframe: 60s
+  condition: selection | count() by Hostname >= 5
+falsepositives:
+- Misconfigured service account with stale password
+level: medium
+tags:
+- attack.credential_access
+- attack.t1110

@@ -1,0 +1,23 @@
+{
+ "incident": "INC-0025",
+ "host": "workstation5",
+ "first_seen": "2020-07-22 04:19:04.118000",
+ "last_seen": "2020-07-22 04:19:04.118000",
+ "alerts": 1,
+ "rules_fired": [
+  "Registry Run key modified"
+ ],
+ "attack_ids": [
+  "T1547.001"
+ ],
+ "tactics": [
+  "Persistence"
+ ],
+ "users": [],
+ "priority": "P2",
+ "summary": "1 alerts on host workstation5 between 2020-07-22 04:19:04.118000 and 2020-07-22 04:19:04.118000 across 1 rule(s): Registry Run key modified. ATT&CK: T1547.001 (Persistence). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Enumerate and remove new tasks/services/run keys; capture the binaries"
+ ]
+}

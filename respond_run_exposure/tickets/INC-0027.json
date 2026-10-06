@@ -1,0 +1,25 @@
+{
+ "incident": "INC-0027",
+ "host": "workstation5",
+ "first_seen": "2020-08-07 18:32:44.580000",
+ "last_seen": "2020-08-07 18:32:45.564000",
+ "alerts": 88,
+ "rules_fired": [
+  "CreateRemoteThread into another process"
+ ],
+ "attack_ids": [
+  "T1055"
+ ],
+ "tactics": [
+  "Defense Evasion",
+  "Privilege Escalation"
+ ],
+ "users": [],
+ "priority": "P1",
+ "summary": "88 alerts on host workstation5 between 2020-08-07 18:32:44.580000 and 2020-08-07 18:32:45.564000 across 1 rule(s): CreateRemoteThread into another process. ATT&CK: T1055 (Defense Evasion, Privilege Escalation). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

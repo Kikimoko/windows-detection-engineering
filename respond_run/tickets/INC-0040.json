@@ -1,0 +1,33 @@
+{
+ "incident": "INC-0040",
+ "host": "workstation5",
+ "first_seen": "2020-10-18 23:50:05.910000",
+ "last_seen": "2020-10-18 23:50:05.994000",
+ "alerts": 4,
+ "rules_fired": [
+  "Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump)",
+  "Signed binary proxy execution with suspicious arguments",
+  "Suspicious process access to LSASS"
+ ],
+ "attack_ids": [
+  "T1003.001",
+  "T1003.002",
+  "T1003.003",
+  "T1218"
+ ],
+ "tactics": [
+  "Credential Access",
+  "Defense Evasion"
+ ],
+ "users": [
+  "WORKSTATION5\\wardog"
+ ],
+ "priority": "P1",
+ "summary": "4 alerts on host workstation5 between 2020-10-18 23:50:05.910000 and 2020-10-18 23:50:05.994000 across 3 rule(s): Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump); Signed binary proxy execution with suspicious arguments; Suspicious process access to LSASS. ATT&CK: T1003.001, T1003.002, T1003.003, T1218 (Credential Access, Defense Evasion). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence",
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

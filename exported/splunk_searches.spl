@@ -1,0 +1,62 @@
+`# win_admin_share_access | Network access to administrative shares | T1021.002 | level=medium`
+index=windows | where ((EventID=5145 AND (match(Message, "(?i)\\\\\\*\\\\ADMIN\\$") OR match(Message, "(?i)\\\\\\*\\\\C\\$"))) AND NOT match(Message, "(?i)Account Name:\\t+[^\\r\\n]*\\$\\r"))
+
+`# win_agg_admin_share_burst | Repeated admin-share access from one source | T1021.002 | level=high`
+index=windows | where ((EventID=5145 AND match(Message, "(?i)Share Name:\\s+\\\\\\\\\\*\\\\(ADMIN|C)\\$")) AND NOT match(Message, "(?i)Account Name:\\t+[^\\r\\n]*\\$\\r")) | sort 0 _time | streamstats time_window=60s count as n by IpAddress | where n>=3
+
+`# win_agg_discovery_burst | Burst of distinct discovery commands on one host | T1016,T1033,T1069,T1082,T1087 | level=medium`
+index=windows | where ((EventID=1 OR EventID=4688) AND match(CommandLine, "(?i)(?i)\\b(whoami|net1?|nltest|ipconfig|systeminfo|tasklist|quser|qwinsta|arp|hostname|nslookup|netstat)(\\.exe)?\\\"?(\\s|$)")) | sort 0 _time | streamstats time_window=60s dc(CommandLine) as n by Hostname | where n>=4
+
+`# win_agg_logon_failure_burst | Burst of failed logons on one host | T1110 | level=medium`
+index=windows | where EventID=4625 | sort 0 _time | streamstats time_window=60s count as n by Hostname | where n>=5
+
+`# win_audit_log_cleared | Event log cleared | T1070.001,T1562.002 | level=high`
+index=windows | where ((EventID=1102 OR EventID=104) OR (match(CommandLine, "(?i)wevtutil\\ cl") OR match(CommandLine, "(?i)wevtutil\\.exe\\ cl") OR match(CommandLine, "(?i)Clear\\-EventLog")))
+
+`# win_credential_dump_commands | Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump) | T1003.001,T1003.002,T1003.003 | level=high`
+index=windows | where ((match(CommandLine, "(?i)ntdsutil") OR match(CommandLine, "(?i)ntds\\.dit")) OR match(CommandLine, "(?i)(?i)\\breg(\\.exe)?[\\\"']?\\s+(save|export)\\s+\\S*hk(lm|ey_local_machine)\\\\(sam|security|system)\\b") OR (match(CommandLine, "(?i)vssadmin") AND match(CommandLine, "(?i)create\\ shadow")) OR (match(CommandLine, "(?i)comsvcs") AND match(CommandLine, "(?i)minidump")) OR (match(CommandLine, "(?i)sekurlsa") OR match(CommandLine, "(?i)lsadump::") OR match(CommandLine, "(?i)invoke\\-mimikatz")) OR (match(CommandLine, "(?i)esentutl") AND match(CommandLine, "(?i)/vss")))
+
+`# win_dcsync_replication_rights | Directory replication rights used (possible DCSync) | T1003.006 | level=high`
+index=windows | where (((EventID=4662 AND (match(Message, "(?i)1131f6aa\\-9c07\\-11d1\\-f79f\\-00c04fc2dcd2") OR match(Message, "(?i)1131f6ad\\-9c07\\-11d1\\-f79f\\-00c04fc2dcd2") OR match(Message, "(?i)89e95b76\\-444d\\-4c62\\-991a\\-0facbeda640c"))) OR (EventID=4662 AND lower(AccessMask)="0x100" AND match(ObjectName, "(?i)^%\\{"))) AND NOT match(SubjectUserName, "(?i)\\$$"))
+
+`# win_defender_registry_disabled | Windows Defender disabled in the registry | T1562.001 | level=high`
+index=windows | where (EventID=13 AND (match(TargetObject, "(?i)\\\\Windows\\ Defender\\\\") OR match(TargetObject, "(?i)\\\\Policies\\\\Microsoft\\\\Windows\\ Defender")) AND (match(TargetObject, "(?i)\\\\DisableAntiSpyware$") OR match(TargetObject, "(?i)\\\\DisableRealtimeMonitoring$") OR match(TargetObject, "(?i)\\\\DisableBehaviorMonitoring$") OR match(TargetObject, "(?i)\\\\DisableIOAVProtection$")) AND match(Details, "(?i)0x00000001") AND match(Channel, "(?i)sysmon"))
+
+`# win_domain_discovery_commands | Account and group discovery commands | T1069,T1087 | level=low`
+index=windows | where (match(CommandLine, "(?i)(?i)\\bnet1?(\\.exe)?[\\\"']?\\s+(group|localgroup|user|accounts)\\b") OR (match(CommandLine, "(?i)whoami\\ /groups") OR match(CommandLine, "(?i)whoami\\ /all") OR match(CommandLine, "(?i)nltest\\ /dclist") OR match(CommandLine, "(?i)nltest\\ /domain_trusts") OR match(CommandLine, "(?i)dsquery") OR match(CommandLine, "(?i)get\\-aduser") OR match(CommandLine, "(?i)get\\-adgroupmember")))
+
+`# win_impair_defenses_commands | Defences disabled from the command line | T1562.001,T1562.002 | level=high`
+index=windows | where ((match(CommandLine, "(?i)auditpol") AND match(CommandLine, "(?i)/remove")) OR (match(CommandLine, "(?i)auditpol") AND match(CommandLine, "(?i)/clear")) OR (match(CommandLine, "(?i)set\\-mppreference") AND match(CommandLine, "(?i)disable")) OR (match(CommandLine, "(?i)sc\\ stop\\ windefend") OR match(CommandLine, "(?i)net\\ stop\\ windefend") OR match(CommandLine, "(?i)sc\\ config\\ sysmon") OR match(CommandLine, "(?i)sc\\ stop\\ sysmon") OR match(CommandLine, "(?i)fltmc\\ unload\\ sysmondrv")) OR (match(CommandLine, "(?i)DisableAntiSpyware") OR match(CommandLine, "(?i)DisableRealtimeMonitoring")) OR match(CommandLine, "(?i)(?i)(wevtutil[\\\"']?\\s+(sl|set-log)\\s.*(/lfn|/logfilename|/e:false|/enabled:false)|\\breg(\\.exe)?[\\\"']?\\s+add\\s.*\\\\(services\\\\eventlog|control\\\\minint)\\b|(sc|net)(\\.exe)?\\s+(stop|config)\\s+eventlog)") OR (EventID=13 AND match(Channel, "(?i)sysmon") AND match(TargetObject, "(?i)(?i)\\\\services\\\\eventlog\\\\[^\\\\]+\\\\(file|maxsize|retention)$|\\\\services\\\\eventlog\\\\start$|\\\\control\\\\minint\\\\")))
+
+`# win_lolbin_proxy_execution | Signed binary proxy execution with suspicious arguments | T1218 | level=high`
+index=windows | where ((match(Image, "(?i)\\\\rundll32\\.exe$") OR match(Image, "(?i)\\\\regsvr32\\.exe$") OR match(Image, "(?i)\\\\mshta\\.exe$") OR match(Image, "(?i)\\\\msiexec\\.exe$") OR match(Image, "(?i)\\\\cmstp\\.exe$") OR match(Image, "(?i)\\\\installutil\\.exe$") OR match(Image, "(?i)\\\\msbuild\\.exe$") OR match(Image, "(?i)\\\\odbcconf\\.exe$") OR match(Image, "(?i)\\\\ieexec\\.exe$")) AND (match(CommandLine, "(?i)http://") OR match(CommandLine, "(?i)https://") OR match(CommandLine, "(?i)scrobj\\.dll") OR match(CommandLine, "(?i)javascript:") OR match(CommandLine, "(?i)vbscript:") OR match(CommandLine, "(?i)/i:http") OR match(CommandLine, "(?i)\\-sta") OR match(CommandLine, "(?i)advpack\\.dll") OR match(CommandLine, "(?i)pcwutl\\.dll") OR match(CommandLine, "(?i)url\\.dll,fileprotocolhandler") OR match(CommandLine, "(?i)\\.sct") OR match(CommandLine, "(?i)/s\\ /n\\ /u") OR match(CommandLine, "(?i)\\-shellcode") OR match(CommandLine, "(?i)comsvcs\\.dll")))
+
+`# win_lsass_access_suspicious | Suspicious process access to LSASS | T1003.001 | level=high`
+index=windows | where ((EventID=10 AND match(TargetImage, "(?i)\\\\lsass\\.exe$") AND (lower(GrantedAccess)="0x1010" OR lower(GrantedAccess)="0x1410" OR lower(GrantedAccess)="0x1438" OR lower(GrantedAccess)="0x143a" OR lower(GrantedAccess)="0x1038" OR lower(GrantedAccess)="0x1fffff" OR lower(GrantedAccess)="0x1f3fff" OR lower(GrantedAccess)="0x1f1fff") AND match(Channel, "(?i)sysmon")) AND NOT (match(SourceImage, "(?i)\\\\svchost\\.exe") OR match(SourceImage, "(?i)\\\\wininit\\.exe") OR match(SourceImage, "(?i)\\\\csrss\\.exe") OR match(SourceImage, "(?i)\\\\VBoxService\\.exe") OR match(SourceImage, "(?i)\\\\MsMpEng\\.exe") OR match(SourceImage, "(?i)\\\\WindowsAzure\\\\") OR match(SourceImage, "(?i)\\\\Packages\\\\Plugins\\\\") OR match(SourceImage, "(?i)\\\\taskmgr\\.exe") OR match(SourceImage, "(?i)\\\\lsm\\.exe") OR match(SourceImage, "(?i)\\\\services\\.exe") OR match(SourceImage, "(?i)\\\\wmiprvse\\.exe") OR match(SourceImage, "(?i)\\\\CollectGuestLogs\\.exe") OR match(SourceImage, "(?i)\\\\AntimalwareConfig\\.exe") OR match(SourceImage, "(?i)\\\\WaAppAgent\\.exe")))
+
+`# win_powershell_suspicious_command | Suspicious PowerShell command line | T1059.001 | level=medium`
+index=windows | where (((match(Image, "(?i)\\\\powershell\\.exe$") OR match(Image, "(?i)\\\\pwsh\\.exe$")) OR (match(NewProcessName, "(?i)\\\\powershell\\.exe$") OR match(NewProcessName, "(?i)\\\\pwsh\\.exe$"))) AND (match(CommandLine, "(?i)\\ \\-enc\\ ") OR match(CommandLine, "(?i)\\-encodedcommand") OR match(CommandLine, "(?i)downloadstring") OR match(CommandLine, "(?i)downloadfile") OR match(CommandLine, "(?i)iex\\(") OR match(CommandLine, "(?i)iex\\ \\(") OR match(CommandLine, "(?i)invoke\\-expression") OR match(CommandLine, "(?i)\\-windowstyle\\ hidden") OR match(CommandLine, "(?i)\\-w\\ hidden") OR match(CommandLine, "(?i)bypass") OR match(CommandLine, "(?i)frombase64string") OR match(CommandLine, "(?i)net\\.webclient")))
+
+`# win_remote_thread_injection | CreateRemoteThread into another process | T1055 | level=high`
+index=windows | where (EventID=8 AND (match(SourceImage, "(?i)\\\\powershell\\.exe$") OR match(SourceImage, "(?i)\\\\cmd\\.exe$") OR match(SourceImage, "(?i)\\\\rundll32\\.exe$") OR match(SourceImage, "(?i)\\\\wscript\\.exe$") OR match(SourceImage, "(?i)\\\\cscript\\.exe$") OR match(SourceImage, "(?i)\\\\mshta\\.exe$") OR match(SourceImage, "(?i)\\\\regsvr32\\.exe$")) AND match(Channel, "(?i)sysmon"))
+
+`# win_run_key_persistence | Registry Run key modified | T1547.001 | level=medium`
+index=windows | where ((EventID=13 AND (match(TargetObject, "(?i)\\\\CurrentVersion\\\\Run\\\\") OR match(TargetObject, "(?i)\\\\CurrentVersion\\\\RunOnce\\\\")) AND match(Channel, "(?i)sysmon")) AND NOT (match(Image, "(?i)\\\\msiexec\\.exe") OR match(Image, "(?i)\\\\OneDriveSetup\\.exe") OR match(Image, "(?i)\\\\Teams") OR match(Image, "(?i)\\\\MicrosoftEdgeUpdate") OR match(Image, "(?i)\\\\svchost\\.exe") OR match(Image, "(?i)\\\\WindowsApps\\\\")))
+
+`# win_scheduled_task_created | Scheduled task created | T1053.005 | level=medium`
+index=windows | where ((match(CommandLine, "(?i)schtasks") AND match(CommandLine, "(?i)/create")) OR (EventID=4698 AND NOT match(Message, "(?i)Account Name:\\t+[^\\r\\n]*\\$\\r")))
+
+`# win_service_create_command | Service created from the command line | T1543.003 | level=medium`
+index=windows | where (match(CommandLine, "(?i)(?i)\\bsc(\\.exe)?\\s+(\\\\\\\\\\S+\\s+)?(create|config)\\s") OR match(CommandLine, "(?i)new\\-service"))
+
+`# win_service_install_suspicious | Service installed from an unusual path or known remote-exec service | T1021.002,T1543.003,T1569.002 | level=high`
+index=windows | where ((EventID=7045 OR EventID=4697) AND (match(Message, "(?i)PSEXESVC") OR match(Message, "(?i)\\\\\\\\127\\.0\\.0\\.1\\\\") OR match(Message, "(?i)\\\\ADMIN\\$\\\\") OR match(Message, "(?i)%COMSPEC%") OR match(Message, "(?i)\\\\Temp\\\\") OR match(Message, "(?i)\\\\AppData\\\\") OR match(Message, "(?i)GruntHTTP") OR match(Message, "(?i)powershell") OR match(Message, "(?i)cmd\\.exe\\ /c")))
+
+`# win_winrm_remote_shell | Process spawned by WinRM host process | T1021.006 | level=medium`
+index=windows | where match(ParentImage, "(?i)\\\\wsmprovhost\\.exe$")
+
+`# win_wmi_event_subscription | WMI event filter/consumer created | T1546.003 | level=high`
+index=windows | where ((EventID=19 OR EventID=20 OR EventID=21) AND match(Channel, "(?i)sysmon"))
+
+`# win_wmi_remote_execution | Process creation via WMI | T1047 | level=high`
+index=windows | where ((match(ParentImage, "(?i)\\\\wmiprvse\\.exe$") AND (match(Image, "(?i)\\\\cmd\\.exe$") OR match(Image, "(?i)\\\\powershell\\.exe$") OR match(Image, "(?i)\\\\rundll32\\.exe$") OR match(Image, "(?i)\\\\mshta\\.exe$"))) OR (match(CommandLine, "(?i)wmic") AND match(CommandLine, "(?i)process\\ call\\ create")) OR (match(CommandLine, "(?i)wmic") AND match(CommandLine, "(?i)/node:")))

@@ -1,0 +1,22 @@
+title: Network access to administrative shares
+id: win_admin_share_access
+status: experimental
+description: Security 5145 to ADMIN$, C$ or IPC$ from a non-machine account.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 5145
+    Message|contains:
+    - \*\ADMIN$
+    - \*\C$
+  filter_machine:
+    Message|re: Account Name:\t+[^\r\n]*\$\r
+  condition: selection and not filter_machine
+falsepositives:
+- Admin file copy
+- Backup jobs
+level: medium
+tags:
+- attack.lateral_movement
+- attack.t1021.002

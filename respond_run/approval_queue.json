@@ -1,0 +1,107 @@
+[
+ {
+  "incident": "INC-0008",
+  "action": "EDR network-isolate host hr001",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0014",
+  "action": "EDR network-isolate host pedro-computer",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0023",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0024",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0027",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0028",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0031",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0032",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0035",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0037",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0040",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0044",
+  "action": "EDR network-isolate host workstation5",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0075",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0076",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0077",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0078",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0079",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0082",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0083",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0084",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ },
+ {
+  "incident": "INC-0085",
+  "action": "EDR network-isolate host workstation6",
+  "status": "AWAITING_APPROVAL"
+ }
+]

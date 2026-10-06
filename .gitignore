@@ -1,0 +1,8 @@
+sds/
+data/events.pkl.gz
+data/runs.pkl.gz
+demo/
+respond_run_binaries*/
+__pycache__/
+.pytest_cache/
+.DS_Store

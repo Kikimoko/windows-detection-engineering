@@ -1,0 +1,41 @@
+title: Signed binary proxy execution with suspicious arguments
+id: win_lolbin_proxy_execution
+status: experimental
+description: rundll32/regsvr32/mshta/msiexec/cmstp/installutil used to load remote or scripted content.
+logsource:
+  product: windows
+detection:
+  selection_bin:
+    Image|endswith:
+    - \rundll32.exe
+    - \regsvr32.exe
+    - \mshta.exe
+    - \msiexec.exe
+    - \cmstp.exe
+    - \installutil.exe
+    - \msbuild.exe
+    - \odbcconf.exe
+    - \ieexec.exe
+  suspicious:
+    CommandLine|contains:
+    - http://
+    - https://
+    - scrobj.dll
+    - 'javascript:'
+    - 'vbscript:'
+    - /i:http
+    - -sta
+    - advpack.dll
+    - pcwutl.dll
+    - url.dll,fileprotocolhandler
+    - .sct
+    - /s /n /u
+    - -shellcode
+    - comsvcs.dll
+  condition: selection_bin and suspicious
+falsepositives:
+- Software installers using msiexec over HTTP
+level: high
+tags:
+- attack.defense_evasion
+- attack.t1218

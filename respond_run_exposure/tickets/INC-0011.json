@@ -1,0 +1,59 @@
+{
+ "incident": "INC-0011",
+ "host": "mordordc",
+ "first_seen": "2020-10-22 08:29:58.095000",
+ "last_seen": "2020-10-22 08:29:58.095000",
+ "alerts": 1,
+ "rules_fired": [
+  "Process spawned by WinRM host process"
+ ],
+ "attack_ids": [
+  "T1021.006"
+ ],
+ "tactics": [
+  "Lateral Movement"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo"
+ ],
+ "priority": "P1",
+ "summary": "1 alerts on host mordordc between 2020-10-22 08:29:58.095000 and 2020-10-22 08:29:58.095000 across 1 rule(s): Process spawned by WinRM host process. ATT&CK: T1021.006 (Lateral Movement). Policy priority P1. Host exposure CRITICAL: CVE-2020-1472 (known exploited, relevant to the observed tactics). Priority raised from P2 to P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Patch CVE-2020-1472 on mordordc ahead of routine patching (known exploited in the wild, used in ransomware, relevant to this incident; CISA due 2022-05-03; asset criticality critical)",
+  "Identify the source host and account; review admin-share and remote-service activity; check other targets"
+ ],
+ "exposure": {
+  "tier": "CRITICAL",
+  "open_cves": 1,
+  "kev_cves": [
+   "CVE-2020-1472"
+  ],
+  "top": [
+   {
+    "cve": "CVE-2020-1472",
+    "kev": true,
+    "cvss": 5.5,
+    "risk_score": 0.003,
+    "relevant": true,
+    "ransomware": true,
+    "criticality": "critical",
+    "internet_facing": false,
+    "patch_due": "2022-05-03",
+    "overdue_at_incident": false
+   }
+  ],
+  "relevant": true,
+  "skipped": {
+   "not_yet_published": 0,
+   "patched_before": 0,
+   "not_yet_seen": 0
+  },
+  "cves_without_score": [],
+  "would_raise": true,
+  "raise_granted": true,
+  "raise_denied": false
+ },
+ "alert_priority_before_exposure": "P2",
+ "containment": "REFUSED: critical host (domain controller) - human-only decision"
+}

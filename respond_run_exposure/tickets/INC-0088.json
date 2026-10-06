@@ -1,0 +1,25 @@
+{
+ "incident": "INC-0088",
+ "host": "workstation7",
+ "first_seen": "2020-10-22 08:29:58.036000",
+ "last_seen": "2020-10-22 08:29:58.036000",
+ "alerts": 1,
+ "rules_fired": [
+  "Process spawned by WinRM host process"
+ ],
+ "attack_ids": [
+  "T1021.006"
+ ],
+ "tactics": [
+  "Lateral Movement"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo"
+ ],
+ "priority": "P2",
+ "summary": "1 alerts on host workstation7 between 2020-10-22 08:29:58.036000 and 2020-10-22 08:29:58.036000 across 1 rule(s): Process spawned by WinRM host process. ATT&CK: T1021.006 (Lateral Movement). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Identify the source host and account; review admin-share and remote-service activity; check other targets"
+ ]
+}

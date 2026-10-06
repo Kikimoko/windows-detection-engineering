@@ -1,0 +1,26 @@
+title: CreateRemoteThread into another process
+id: win_remote_thread_injection
+status: experimental
+description: Sysmon 8 from scripting hosts/unknown sources into other processes.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 8
+    SourceImage|endswith:
+    - \powershell.exe
+    - \cmd.exe
+    - \rundll32.exe
+    - \wscript.exe
+    - \cscript.exe
+    - \mshta.exe
+    - \regsvr32.exe
+    Channel|contains: sysmon
+  condition: selection
+falsepositives:
+- Some security tools
+level: high
+tags:
+- attack.defense_evasion
+- attack.privilege_escalation
+- attack.t1055

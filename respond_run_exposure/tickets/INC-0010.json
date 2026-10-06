@@ -1,0 +1,59 @@
+{
+ "incident": "INC-0010",
+ "host": "mordordc",
+ "first_seen": "2020-09-21 22:59:08.718000",
+ "last_seen": "2020-09-21 22:59:08.718000",
+ "alerts": 3,
+ "rules_fired": [
+  "Directory replication rights used (possible DCSync)"
+ ],
+ "attack_ids": [
+  "T1003.006"
+ ],
+ "tactics": [
+  "Credential Access"
+ ],
+ "users": [
+  "pgustavo"
+ ],
+ "priority": "P1",
+ "summary": "3 alerts on host mordordc between 2020-09-21 22:59:08.718000 and 2020-09-21 22:59:08.718000 across 1 rule(s): Directory replication rights used (possible DCSync). ATT&CK: T1003.006 (Credential Access). Policy priority P1. Host exposure CRITICAL: CVE-2020-1472 (known exploited, relevant to the observed tactics). Priority raised from P2 to P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Patch CVE-2020-1472 on mordordc ahead of routine patching (known exploited in the wild, used in ransomware, relevant to this incident; CISA due 2022-05-03; asset criticality critical)",
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence"
+ ],
+ "exposure": {
+  "tier": "CRITICAL",
+  "open_cves": 1,
+  "kev_cves": [
+   "CVE-2020-1472"
+  ],
+  "top": [
+   {
+    "cve": "CVE-2020-1472",
+    "kev": true,
+    "cvss": 5.5,
+    "risk_score": 0.003,
+    "relevant": true,
+    "ransomware": true,
+    "criticality": "critical",
+    "internet_facing": false,
+    "patch_due": "2022-05-03",
+    "overdue_at_incident": false
+   }
+  ],
+  "relevant": true,
+  "skipped": {
+   "not_yet_published": 0,
+   "patched_before": 0,
+   "not_yet_seen": 0
+  },
+  "cves_without_score": [],
+  "would_raise": true,
+  "raise_granted": true,
+  "raise_denied": false
+ },
+ "alert_priority_before_exposure": "P2",
+ "containment": "REFUSED: critical host (domain controller) - human-only decision"
+}

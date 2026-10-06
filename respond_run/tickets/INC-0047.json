@@ -1,0 +1,25 @@
+{
+ "incident": "INC-0047",
+ "host": "workstation5",
+ "first_seen": "2020-10-22 00:45:33.684000",
+ "last_seen": "2020-10-22 00:45:41.335000",
+ "alerts": 2,
+ "rules_fired": [
+  "Service created from the command line"
+ ],
+ "attack_ids": [
+  "T1543.003"
+ ],
+ "tactics": [
+  "Persistence"
+ ],
+ "users": [
+  "WORKSTATION5\\wardog"
+ ],
+ "priority": "P2",
+ "summary": "2 alerts on host workstation5 between 2020-10-22 00:45:33.684000 and 2020-10-22 00:45:41.335000 across 1 rule(s): Service created from the command line. ATT&CK: T1543.003 (Persistence). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Enumerate and remove new tasks/services/run keys; capture the binaries"
+ ]
+}

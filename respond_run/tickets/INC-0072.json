@@ -1,0 +1,28 @@
+{
+ "incident": "INC-0072",
+ "host": "workstation6",
+ "first_seen": "2020-09-14 12:06:02.316000",
+ "last_seen": "2020-09-14 12:06:02.425000",
+ "alerts": 8,
+ "rules_fired": [
+  "Account and group discovery commands"
+ ],
+ "attack_ids": [
+  "T1069",
+  "T1087"
+ ],
+ "tactics": [
+  "Discovery"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo",
+  "WORKSTATION6$",
+  "pgustavo"
+ ],
+ "priority": "P3",
+ "summary": "8 alerts on host workstation6 between 2020-09-14 12:06:02.316000 and 2020-09-14 12:06:02.425000 across 1 rule(s): Account and group discovery commands. ATT&CK: T1069, T1087 (Discovery). Policy priority P3.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Correlate with the account's prior activity; watch for follow-on actions"
+ ]
+}

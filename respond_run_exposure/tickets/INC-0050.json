@@ -1,0 +1,24 @@
+{
+ "incident": "INC-0050",
+ "host": "workstation5",
+ "first_seen": "2020-10-22 02:21:34.280000",
+ "last_seen": "2020-10-22 02:21:34.675000",
+ "alerts": 3,
+ "rules_fired": [
+  "Event log cleared"
+ ],
+ "attack_ids": [
+  "T1070.001",
+  "T1562.002"
+ ],
+ "tactics": [
+  "Defense Evasion"
+ ],
+ "users": [],
+ "priority": "P2",
+ "summary": "3 alerts on host workstation5 between 2020-10-22 02:21:34.280000 and 2020-10-22 02:21:34.675000 across 1 rule(s): Event log cleared. ATT&CK: T1070.001, T1562.002 (Defense Evasion). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ]
+}

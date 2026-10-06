@@ -1,0 +1,29 @@
+{
+ "incident": "INC-0079",
+ "host": "workstation6",
+ "first_seen": "2020-09-21 04:14:53.368000",
+ "last_seen": "2020-09-21 04:14:53.831000",
+ "alerts": 3,
+ "rules_fired": [
+  "Suspicious PowerShell command line",
+  "Process creation via WMI"
+ ],
+ "attack_ids": [
+  "T1047",
+  "T1059.001"
+ ],
+ "tactics": [
+  "Execution"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo",
+  "WORKSTATION6$"
+ ],
+ "priority": "P1",
+ "summary": "3 alerts on host workstation6 between 2020-09-21 04:14:53.368000 and 2020-09-21 04:14:53.831000 across 2 rule(s): Suspicious PowerShell command line; Process creation via WMI. ATT&CK: T1047, T1059.001 (Execution). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Collect the script/command content; identify the parent process"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

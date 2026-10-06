@@ -1,0 +1,61 @@
+{
+ "incident": "INC-0004",
+ "host": "dc01",
+ "first_seen": "2023-07-19 16:03:37.257000",
+ "last_seen": "2023-07-19 16:03:37.257000",
+ "alerts": 1,
+ "rules_fired": [
+  "Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump)"
+ ],
+ "attack_ids": [
+  "T1003.001",
+  "T1003.002",
+  "T1003.003"
+ ],
+ "tactics": [
+  "Credential Access"
+ ],
+ "users": [
+  "PANDALAB\\Administrator"
+ ],
+ "priority": "P1",
+ "summary": "1 alerts on host dc01 between 2023-07-19 16:03:37.257000 and 2023-07-19 16:03:37.257000 across 1 rule(s): Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump). ATT&CK: T1003.001, T1003.002, T1003.003 (Credential Access). Policy priority P1. Host exposure CRITICAL: CVE-2020-1472 (known exploited, relevant to the observed tactics). Priority raised from P2 to P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Patch CVE-2020-1472 on dc01 ahead of routine patching (known exploited in the wild, used in ransomware, relevant to this incident; CISA due 2022-05-03 - already overdue when the incident happened; asset criticality critical)",
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence"
+ ],
+ "exposure": {
+  "tier": "CRITICAL",
+  "open_cves": 1,
+  "kev_cves": [
+   "CVE-2020-1472"
+  ],
+  "top": [
+   {
+    "cve": "CVE-2020-1472",
+    "kev": true,
+    "cvss": 5.5,
+    "risk_score": 0.003,
+    "relevant": true,
+    "ransomware": true,
+    "criticality": "critical",
+    "internet_facing": false,
+    "patch_due": "2022-05-03",
+    "overdue_at_incident": true
+   }
+  ],
+  "relevant": true,
+  "skipped": {
+   "not_yet_published": 0,
+   "patched_before": 0,
+   "not_yet_seen": 0
+  },
+  "cves_without_score": [],
+  "would_raise": true,
+  "raise_granted": true,
+  "raise_denied": false
+ },
+ "alert_priority_before_exposure": "P2",
+ "containment": "REFUSED: critical host (domain controller) - human-only decision"
+}

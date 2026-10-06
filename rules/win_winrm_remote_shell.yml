@@ -1,0 +1,16 @@
+title: Process spawned by WinRM host process
+id: win_winrm_remote_shell
+status: experimental
+description: Children of wsmprovhost.exe (remote PowerShell/WinRM).
+logsource:
+  product: windows
+detection:
+  selection:
+    ParentImage|endswith: \wsmprovhost.exe
+  condition: selection
+falsepositives:
+- Remote administration
+level: medium
+tags:
+- attack.lateral_movement
+- attack.t1021.006

@@ -1,0 +1,27 @@
+{
+ "incident": "INC-0082",
+ "host": "workstation6",
+ "first_seen": "2020-09-22 03:30:39.511000",
+ "last_seen": "2020-09-22 03:30:39.511000",
+ "alerts": 8,
+ "rules_fired": [
+  "Network access to administrative shares",
+  "Repeated admin-share access from one source"
+ ],
+ "attack_ids": [
+  "T1021.002"
+ ],
+ "tactics": [
+  "Lateral Movement"
+ ],
+ "users": [
+  "pgustavo"
+ ],
+ "priority": "P1",
+ "summary": "8 alerts on host workstation6 between 2020-09-22 03:30:39.511000 and 2020-09-22 03:30:39.511000 across 2 rule(s): Network access to administrative shares; Repeated admin-share access from one source. ATT&CK: T1021.002 (Lateral Movement). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Identify the source host and account; review admin-share and remote-service activity; check other targets"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

@@ -1,0 +1,27 @@
+{
+ "incident": "INC-0069",
+ "host": "workstation6",
+ "first_seen": "2020-08-06 06:27:29.490000",
+ "last_seen": "2020-08-06 06:27:29.490000",
+ "alerts": 2,
+ "rules_fired": [
+  "Service installed from an unusual path or known remote-exec service"
+ ],
+ "attack_ids": [
+  "T1021.002",
+  "T1543.003",
+  "T1569.002"
+ ],
+ "tactics": [
+  "Lateral Movement"
+ ],
+ "users": [
+  "pgustavo"
+ ],
+ "priority": "P2",
+ "summary": "2 alerts on host workstation6 between 2020-08-06 06:27:29.490000 and 2020-08-06 06:27:29.490000 across 1 rule(s): Service installed from an unusual path or known remote-exec service. ATT&CK: T1021.002, T1543.003, T1569.002 (Lateral Movement). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Identify the source host and account; review admin-share and remote-service activity; check other targets"
+ ]
+}

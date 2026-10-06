@@ -1,0 +1,27 @@
+title: Account and group discovery commands
+id: win_domain_discovery_commands
+status: experimental
+description: net group/localgroup, whoami /groups, nltest, dsquery used for discovery.
+logsource:
+  product: windows
+detection:
+  selection_net:
+    CommandLine|re: (?i)\bnet1?(\.exe)?[\"']?\s+(group|localgroup|user|accounts)\b
+  selection_other:
+    CommandLine|contains:
+    - whoami /groups
+    - whoami /all
+    - nltest /dclist
+    - nltest /domain_trusts
+    - dsquery
+    - get-aduser
+    - get-adgroupmember
+  condition: 1 of selection_*
+falsepositives:
+- Helpdesk and admins
+level: low
+tags:
+- attack.discovery
+- attack.t1069
+- attack.t1087
+version: 3

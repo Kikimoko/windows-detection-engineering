@@ -1,0 +1,20 @@
+{
+ "events_scanned": 786312,
+ "alerts": 388,
+ "incidents": 88,
+ "alerts_per_incident_mean": 4.4,
+ "alert_reduction_pct": 77.3,
+ "priority_counts": {
+  "P1": 24,
+  "P2": 61,
+  "P3": 3
+ },
+ "containment_proposals": 21,
+ "containment_refused_critical_hosts": 3,
+ "unsupported_claims_in_summaries": 0,
+ "incidents_mixing_more_than_one_run": 6,
+ "runs_split_across_incidents": 14,
+ "runs_with_alerts": 78,
+ "backend": "template",
+ "gap_min": 10
+}

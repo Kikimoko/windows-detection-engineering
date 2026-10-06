@@ -1,0 +1,29 @@
+title: Process creation via WMI
+id: win_wmi_remote_execution
+status: experimental
+description: Children of WmiPrvSE running shells, or wmic process call create.
+logsource:
+  product: windows
+detection:
+  selection_parent:
+    ParentImage|endswith: \wmiprvse.exe
+    Image|endswith:
+    - \cmd.exe
+    - \powershell.exe
+    - \rundll32.exe
+    - \mshta.exe
+  selection_wmic:
+    CommandLine|contains|all:
+    - wmic
+    - process call create
+  selection_node:
+    CommandLine|contains|all:
+    - wmic
+    - '/node:'
+  condition: 1 of selection_*
+falsepositives:
+- Monitoring agents using WMI
+level: high
+tags:
+- attack.execution
+- attack.t1047

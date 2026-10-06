@@ -1,0 +1,36 @@
+title: Suspicious PowerShell command line
+id: win_powershell_suspicious_command
+status: experimental
+description: Encoded commands, download cradles, hidden windows, AMSI/ExecutionPolicy bypass.
+logsource:
+  product: windows
+detection:
+  selection_img:
+    Image|endswith:
+    - \powershell.exe
+    - \pwsh.exe
+  selection_img2:
+    NewProcessName|endswith:
+    - \powershell.exe
+    - \pwsh.exe
+  suspicious:
+    CommandLine|contains:
+    - ' -enc '
+    - -encodedcommand
+    - downloadstring
+    - downloadfile
+    - iex(
+    - iex (
+    - invoke-expression
+    - -windowstyle hidden
+    - -w hidden
+    - bypass
+    - frombase64string
+    - net.webclient
+  condition: 1 of selection_img* and suspicious
+falsepositives:
+- Software deployment scripts
+level: medium
+tags:
+- attack.execution
+- attack.t1059.001

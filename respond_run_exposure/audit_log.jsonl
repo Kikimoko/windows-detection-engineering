@@ -1,0 +1,120 @@
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0001", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0001", "host": "dc01"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0002", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0002", "host": "dc01"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0003", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0003", "host": "dc01"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0004", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0004", "host": "dc01"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0005", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0005", "host": "dc01"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0006", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0006", "host": "dc01"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0007", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0008", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0008", "action": "EDR network-isolate host hr001", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0009", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0010", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0010", "host": "mordordc"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0011", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_refused", "incident": "INC-0011", "host": "mordordc"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0012", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0012", "action": "EDR network-isolate host pedro-computer", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0013", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0013", "action": "EDR network-isolate host pedro-computer", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0014", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0014", "action": "EDR network-isolate host pedro-computer", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0015", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "CRITICAL", "raise_granted": true, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0015", "action": "EDR network-isolate host pedro-computer", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0016", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "HIGH", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0017", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "HIGH", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0018", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "HIGH", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0019", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "HIGH", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0020", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "HIGH", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0021", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "HIGH", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0022", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "HIGH", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0023", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0023", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0024", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0024", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0025", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0026", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0027", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0027", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0028", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0028", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0029", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0030", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0031", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0031", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0032", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0032", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0033", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0034", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0035", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0035", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0036", "policy": "P3", "model": "P3", "final": "P3", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0037", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0037", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0038", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0039", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0040", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0040", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0041", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0042", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0043", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0044", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0044", "action": "EDR network-isolate host workstation5", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0045", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0046", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0047", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0048", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0049", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0050", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0051", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0052", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0053", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0054", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0055", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0056", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0057", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0058", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0059", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0060", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0061", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0062", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0063", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0064", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0065", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0066", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0067", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0068", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0069", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0070", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0071", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0072", "policy": "P3", "model": "P3", "final": "P3", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0073", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0074", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0075", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0075", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0076", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0076", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0077", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0077", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0078", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0078", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0079", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0079", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0080", "policy": "P3", "model": "P3", "final": "P3", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0081", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0082", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0082", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0083", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0083", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0084", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0084", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0085", "policy": "P1", "model": "P1", "final": "P1", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "containment_proposed", "incident": "INC-0085", "action": "EDR network-isolate host workstation6", "status": "AWAITING_APPROVAL"}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0086", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0087", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}
+{"ts": "2026-09-30T21:53:49", "step": "enrich", "incident": "INC-0088", "policy": "P2", "model": "P2", "final": "P2", "unsupported": [], "exposure": {"tier": "NONE", "raise_granted": false, "raise_denied": false}}

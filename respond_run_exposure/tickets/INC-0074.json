@@ -1,0 +1,26 @@
+{
+ "incident": "INC-0074",
+ "host": "workstation6",
+ "first_seen": "2020-09-18 17:08:36.186000",
+ "last_seen": "2020-09-18 17:08:36.466000",
+ "alerts": 2,
+ "rules_fired": [
+  "Suspicious PowerShell command line"
+ ],
+ "attack_ids": [
+  "T1059.001"
+ ],
+ "tactics": [
+  "Execution"
+ ],
+ "users": [
+  "THESHIRE\\sbeavers",
+  "sbeavers"
+ ],
+ "priority": "P2",
+ "summary": "2 alerts on host workstation6 between 2020-09-18 17:08:36.186000 and 2020-09-18 17:08:36.466000 across 1 rule(s): Suspicious PowerShell command line. ATT&CK: T1059.001 (Execution). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Collect the script/command content; identify the parent process"
+ ]
+}

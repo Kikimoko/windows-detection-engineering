@@ -1,0 +1,44 @@
+title: Suspicious process access to LSASS
+id: win_lsass_access_suspicious
+status: experimental
+description: Sysmon ProcessAccess on lsass.exe with memory-read style access masks, excluding common system callers.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 10
+    TargetImage|endswith: \lsass.exe
+    GrantedAccess:
+    - '0x1010'
+    - '0x1410'
+    - '0x1438'
+    - '0x143a'
+    - '0x1038'
+    - '0x1fffff'
+    - '0x1f3fff'
+    - '0x1f1fff'
+    Channel|contains: sysmon
+  filter_system:
+    SourceImage|contains:
+    - \svchost.exe
+    - \wininit.exe
+    - \csrss.exe
+    - \VBoxService.exe
+    - \MsMpEng.exe
+    - \WindowsAzure\
+    - \Packages\Plugins\
+    - \taskmgr.exe
+    - \lsm.exe
+    - \services.exe
+    - \wmiprvse.exe
+    - \CollectGuestLogs.exe
+    - \AntimalwareConfig.exe
+    - \WaAppAgent.exe
+  condition: selection and not filter_system
+falsepositives:
+- Endpoint protection, backup agents
+level: high
+tags:
+- attack.credential_access
+- attack.t1003.001
+version: 4

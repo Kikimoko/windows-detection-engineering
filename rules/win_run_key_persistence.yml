@@ -1,0 +1,28 @@
+title: Registry Run key modified
+id: win_run_key_persistence
+status: experimental
+description: Sysmon 13 on Run/RunOnce keys by unusual writers.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 13
+    TargetObject|contains:
+    - \CurrentVersion\Run\
+    - \CurrentVersion\RunOnce\
+    Channel|contains: sysmon
+  filter_common:
+    Image|contains:
+    - \msiexec.exe
+    - \OneDriveSetup.exe
+    - \Teams
+    - \MicrosoftEdgeUpdate
+    - \svchost.exe
+    - \WindowsApps\
+  condition: selection and not filter_common
+falsepositives:
+- Software installers
+level: medium
+tags:
+- attack.persistence
+- attack.t1547.001

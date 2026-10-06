@@ -1,0 +1,153 @@
+{
+ "events": 786312,
+ "all_identical": true,
+ "rules": [
+  {
+   "rule": "win_admin_share_access",
+   "engine_hits": 19,
+   "dsl_hits": 19,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_agg_admin_share_burst",
+   "engine_hits": 19,
+   "dsl_hits": 19,
+   "identical": true,
+   "aggregation_rule": true
+  },
+  {
+   "rule": "win_agg_discovery_burst",
+   "engine_hits": 120,
+   "dsl_hits": 120,
+   "identical": true,
+   "aggregation_rule": true
+  },
+  {
+   "rule": "win_agg_logon_failure_burst",
+   "engine_hits": 25,
+   "dsl_hits": 25,
+   "identical": true,
+   "aggregation_rule": true
+  },
+  {
+   "rule": "win_audit_log_cleared",
+   "engine_hits": 63,
+   "dsl_hits": 63,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_credential_dump_commands",
+   "engine_hits": 24,
+   "dsl_hits": 24,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_dcsync_replication_rights",
+   "engine_hits": 6,
+   "dsl_hits": 6,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_defender_registry_disabled",
+   "engine_hits": 0,
+   "dsl_hits": 0,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_domain_discovery_commands",
+   "engine_hits": 28,
+   "dsl_hits": 28,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_impair_defenses_commands",
+   "engine_hits": 15,
+   "dsl_hits": 15,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_lolbin_proxy_execution",
+   "engine_hits": 4,
+   "dsl_hits": 4,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_lsass_access_suspicious",
+   "engine_hits": 18,
+   "dsl_hits": 18,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_powershell_suspicious_command",
+   "engine_hits": 30,
+   "dsl_hits": 30,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_remote_thread_injection",
+   "engine_hits": 89,
+   "dsl_hits": 89,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_run_key_persistence",
+   "engine_hits": 5,
+   "dsl_hits": 5,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_scheduled_task_created",
+   "engine_hits": 13,
+   "dsl_hits": 13,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_service_create_command",
+   "engine_hits": 4,
+   "dsl_hits": 4,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_service_install_suspicious",
+   "engine_hits": 8,
+   "dsl_hits": 8,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_winrm_remote_shell",
+   "engine_hits": 5,
+   "dsl_hits": 5,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_wmi_event_subscription",
+   "engine_hits": 9,
+   "dsl_hits": 9,
+   "identical": true,
+   "aggregation_rule": false
+  },
+  {
+   "rule": "win_wmi_remote_execution",
+   "engine_hits": 11,
+   "dsl_hits": 11,
+   "identical": true,
+   "aggregation_rule": false
+  }
+ ]
+}

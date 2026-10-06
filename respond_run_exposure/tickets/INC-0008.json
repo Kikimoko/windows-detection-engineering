@@ -1,0 +1,31 @@
+{
+ "incident": "INC-0008",
+ "host": "hr001",
+ "first_seen": "2019-12-05 01:50:07.450000",
+ "last_seen": "2019-12-05 01:50:07.473000",
+ "alerts": 3,
+ "rules_fired": [
+  "Suspicious PowerShell command line",
+  "Process spawned by WinRM host process"
+ ],
+ "attack_ids": [
+  "T1021.006",
+  "T1059.001"
+ ],
+ "tactics": [
+  "Execution",
+  "Lateral Movement"
+ ],
+ "users": [
+  "pgustavo",
+  "shire\\pgustavo"
+ ],
+ "priority": "P1",
+ "summary": "3 alerts on host hr001 between 2019-12-05 01:50:07.450000 and 2019-12-05 01:50:07.473000 across 2 rule(s): Suspicious PowerShell command line; Process spawned by WinRM host process. ATT&CK: T1021.006, T1059.001 (Execution, Lateral Movement). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Collect the script/command content; identify the parent process",
+  "Identify the source host and account; review admin-share and remote-service activity; check other targets"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

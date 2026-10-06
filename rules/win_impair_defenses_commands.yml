@@ -1,0 +1,45 @@
+title: Defences disabled from the command line
+id: win_impair_defenses_commands
+status: experimental
+description: 'auditpol clear/remove, Defender disabled via PowerShell, stopping Sysmon/Defender services. Also event-log tampering: wevtutil set-log path changes, EventLog service/MiniNt registry edits.'
+logsource:
+  product: windows
+detection:
+  selection_audit:
+    CommandLine|contains|all:
+    - auditpol
+    - /remove
+  selection_audit2:
+    CommandLine|contains|all:
+    - auditpol
+    - /clear
+  selection_mp:
+    CommandLine|contains|all:
+    - set-mppreference
+    - disable
+  selection_svc:
+    CommandLine|contains:
+    - sc stop windefend
+    - net stop windefend
+    - sc config sysmon
+    - sc stop sysmon
+    - fltmc unload sysmondrv
+  selection_tamper:
+    CommandLine|contains:
+    - DisableAntiSpyware
+    - DisableRealtimeMonitoring
+  condition: 1 of selection_*
+  selection_eventlog_cmd:
+    CommandLine|re: (?i)(wevtutil[\"']?\s+(sl|set-log)\s.*(/lfn|/logfilename|/e:false|/enabled:false)|\breg(\.exe)?[\"']?\s+add\s.*\\(services\\eventlog|control\\minint)\b|(sc|net)(\.exe)?\s+(stop|config)\s+eventlog)
+  selection_eventlog_reg:
+    EventID: 13
+    Channel|contains: sysmon
+    TargetObject|re: (?i)\\services\\eventlog\\[^\\]+\\(file|maxsize|retention)$|\\services\\eventlog\\start$|\\control\\minint\\
+falsepositives:
+- Endpoint-management scripts
+level: high
+tags:
+- attack.defense_evasion
+- attack.t1562.001
+- attack.t1562.002
+version: 3

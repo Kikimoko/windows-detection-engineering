@@ -1,0 +1,51 @@
+{
+ "events_scanned": 786312,
+ "alerts": 388,
+ "incidents": 88,
+ "alerts_per_incident_mean": 4.4,
+ "alert_reduction_pct": 77.3,
+ "priority_counts": {
+  "P1": 32,
+  "P2": 53,
+  "P3": 3
+ },
+ "containment_proposals": 24,
+ "containment_refused_critical_hosts": 8,
+ "unsupported_claims_in_summaries": 0,
+ "incidents_mixing_more_than_one_run": 6,
+ "runs_split_across_incidents": 14,
+ "runs_with_alerts": 78,
+ "backend": "template",
+ "gap_min": 10,
+ "exposure_tiers_of_incidents": {
+  "CRITICAL": 12,
+  "NONE": 69,
+  "HIGH": 7
+ },
+ "raise_candidates": 8,
+ "incidents_raised_by_exposure": 8,
+ "raises_withheld_by_budget": 0,
+ "raise_share": 0.091,
+ "max_raise_share": 0.25,
+ "inventory_hosts": 8,
+ "remediation_items": 7,
+ "remediation_items_overdue": 4,
+ "data_freshness": {
+  "known": true,
+  "kev_catalog_version": "2026.09.30",
+  "kev_entries": 1730,
+  "kev_built": "2026-09-30",
+  "scores_built": "2026-09-30",
+  "scored_cves": 101350,
+  "cve_published_range": [
+   "2018-01-08",
+   "2026-09-29"
+  ],
+  "model_train_until": "2022-12-31",
+  "age_days": {
+   "kev_built": 1,
+   "scores_built": 1
+  },
+  "stale": false
+ }
+}

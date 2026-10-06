@@ -1,0 +1,66 @@
+{
+ "incident": "INC-0003",
+ "host": "dc01",
+ "first_seen": "2023-07-19 12:20:09.476000",
+ "last_seen": "2023-07-19 12:24:02.552000",
+ "alerts": 4,
+ "rules_fired": [
+  "Event log cleared",
+  "Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump)"
+ ],
+ "attack_ids": [
+  "T1003.001",
+  "T1003.002",
+  "T1003.003",
+  "T1070.001",
+  "T1562.002"
+ ],
+ "tactics": [
+  "Credential Access",
+  "Defense Evasion"
+ ],
+ "users": [
+  "Administrator"
+ ],
+ "priority": "P1",
+ "summary": "4 alerts on host dc01 between 2023-07-19 12:20:09.476000 and 2023-07-19 12:24:02.552000 across 2 rule(s): Event log cleared; Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump). ATT&CK: T1003.001, T1003.002, T1003.003, T1070.001, T1562.002 (Credential Access, Defense Evasion). Policy priority P1. Host exposure CRITICAL: CVE-2020-1472 (known exploited, relevant to the observed tactics).",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Patch CVE-2020-1472 on dc01 ahead of routine patching (known exploited in the wild, used in ransomware, relevant to this incident; CISA due 2022-05-03 - already overdue when the incident happened; asset criticality critical)",
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence",
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ],
+ "exposure": {
+  "tier": "CRITICAL",
+  "open_cves": 1,
+  "kev_cves": [
+   "CVE-2020-1472"
+  ],
+  "top": [
+   {
+    "cve": "CVE-2020-1472",
+    "kev": true,
+    "cvss": 5.5,
+    "risk_score": 0.003,
+    "relevant": true,
+    "ransomware": true,
+    "criticality": "critical",
+    "internet_facing": false,
+    "patch_due": "2022-05-03",
+    "overdue_at_incident": true
+   }
+  ],
+  "relevant": true,
+  "skipped": {
+   "not_yet_published": 0,
+   "patched_before": 0,
+   "not_yet_seen": 0
+  },
+  "cves_without_score": [],
+  "would_raise": false,
+  "raise_granted": false,
+  "raise_denied": false
+ },
+ "alert_priority_before_exposure": "P1",
+ "containment": "REFUSED: critical host (domain controller) - human-only decision"
+}

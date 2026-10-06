@@ -1,0 +1,380 @@
+{
+ "split": "dev",
+ "runs": 58,
+ "events": 490547,
+ "rules": 18,
+ "run_level": {
+  "runs_whose_technique_has_a_rule": 48,
+  "detected_by_targeted_rule": 37,
+  "recall_where_rule_exists": 0.771,
+  "overall_recall_all_runs": 0.638,
+  "runs_with_any_alert": 48
+ },
+ "per_rule": [
+  {
+   "rule": "win_admin_share_access",
+   "level": "medium",
+   "targets": [
+    "T1021"
+   ],
+   "runs_with_target_technique": 4,
+   "detected": 0,
+   "recall_on_target_runs": 0.0,
+   "fires_on_off_target_runs": 2,
+   "off_target_runs": 54,
+   "off_target_rate": 0.037,
+   "alerts_total": 10,
+   "alerts_per_10k_events": 0.2
+  },
+  {
+   "rule": "win_audit_log_cleared",
+   "level": "high",
+   "targets": [
+    "T1070",
+    "T1562"
+   ],
+   "runs_with_target_technique": 7,
+   "detected": 2,
+   "recall_on_target_runs": 0.286,
+   "fires_on_off_target_runs": 14,
+   "off_target_runs": 51,
+   "off_target_rate": 0.275,
+   "alerts_total": 29,
+   "alerts_per_10k_events": 0.59
+  },
+  {
+   "rule": "win_credential_dump_commands",
+   "level": "high",
+   "targets": [
+    "T1003"
+   ],
+   "runs_with_target_technique": 15,
+   "detected": 4,
+   "recall_on_target_runs": 0.267,
+   "fires_on_off_target_runs": 1,
+   "off_target_runs": 43,
+   "off_target_rate": 0.023,
+   "alerts_total": 14,
+   "alerts_per_10k_events": 0.29
+  },
+  {
+   "rule": "win_dcsync_replication_rights",
+   "level": "high",
+   "targets": [
+    "T1003"
+   ],
+   "runs_with_target_technique": 15,
+   "detected": 1,
+   "recall_on_target_runs": 0.067,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 43,
+   "off_target_rate": 0.0,
+   "alerts_total": 3,
+   "alerts_per_10k_events": 0.06
+  },
+  {
+   "rule": "win_defender_registry_disabled",
+   "level": "high",
+   "targets": [
+    "T1562"
+   ],
+   "runs_with_target_technique": 7,
+   "detected": 0,
+   "recall_on_target_runs": 0.0,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 51,
+   "off_target_rate": 0.0,
+   "alerts_total": 0,
+   "alerts_per_10k_events": 0.0
+  },
+  {
+   "rule": "win_domain_discovery_commands",
+   "level": "low",
+   "targets": [
+    "T1069",
+    "T1087"
+   ],
+   "runs_with_target_technique": 5,
+   "detected": 4,
+   "recall_on_target_runs": 0.8,
+   "fires_on_off_target_runs": 1,
+   "off_target_runs": 53,
+   "off_target_rate": 0.019,
+   "alerts_total": 22,
+   "alerts_per_10k_events": 0.45
+  },
+  {
+   "rule": "win_impair_defenses_commands",
+   "level": "high",
+   "targets": [
+    "T1562"
+   ],
+   "runs_with_target_technique": 7,
+   "detected": 4,
+   "recall_on_target_runs": 0.571,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 51,
+   "off_target_rate": 0.0,
+   "alerts_total": 9,
+   "alerts_per_10k_events": 0.18
+  },
+  {
+   "rule": "win_lolbin_proxy_execution",
+   "level": "high",
+   "targets": [
+    "T1218"
+   ],
+   "runs_with_target_technique": 3,
+   "detected": 3,
+   "recall_on_target_runs": 1.0,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 55,
+   "off_target_rate": 0.0,
+   "alerts_total": 3,
+   "alerts_per_10k_events": 0.06
+  },
+  {
+   "rule": "win_lsass_access_suspicious",
+   "level": "high",
+   "targets": [
+    "T1003"
+   ],
+   "runs_with_target_technique": 15,
+   "detected": 4,
+   "recall_on_target_runs": 0.267,
+   "fires_on_off_target_runs": 1,
+   "off_target_runs": 43,
+   "off_target_rate": 0.023,
+   "alerts_total": 7,
+   "alerts_per_10k_events": 0.14
+  },
+  {
+   "rule": "win_powershell_suspicious_command",
+   "level": "medium",
+   "targets": [
+    "T1059"
+   ],
+   "runs_with_target_technique": 2,
+   "detected": 1,
+   "recall_on_target_runs": 0.5,
+   "fires_on_off_target_runs": 12,
+   "off_target_runs": 56,
+   "off_target_rate": 0.214,
+   "alerts_total": 28,
+   "alerts_per_10k_events": 0.57
+  },
+  {
+   "rule": "win_remote_thread_injection",
+   "level": "high",
+   "targets": [
+    "T1055"
+   ],
+   "runs_with_target_technique": 3,
+   "detected": 2,
+   "recall_on_target_runs": 0.667,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 55,
+   "off_target_rate": 0.0,
+   "alerts_total": 89,
+   "alerts_per_10k_events": 1.81
+  },
+  {
+   "rule": "win_run_key_persistence",
+   "level": "medium",
+   "targets": [
+    "T1547"
+   ],
+   "runs_with_target_technique": 2,
+   "detected": 2,
+   "recall_on_target_runs": 1.0,
+   "fires_on_off_target_runs": 2,
+   "off_target_runs": 56,
+   "off_target_rate": 0.036,
+   "alerts_total": 5,
+   "alerts_per_10k_events": 0.1
+  },
+  {
+   "rule": "win_scheduled_task_created",
+   "level": "medium",
+   "targets": [
+    "T1053"
+   ],
+   "runs_with_target_technique": 2,
+   "detected": 2,
+   "recall_on_target_runs": 1.0,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 56,
+   "off_target_rate": 0.0,
+   "alerts_total": 6,
+   "alerts_per_10k_events": 0.12
+  },
+  {
+   "rule": "win_service_create_command",
+   "level": "medium",
+   "targets": [
+    "T1543"
+   ],
+   "runs_with_target_technique": 1,
+   "detected": 1,
+   "recall_on_target_runs": 1.0,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 57,
+   "off_target_rate": 0.0,
+   "alerts_total": 4,
+   "alerts_per_10k_events": 0.08
+  },
+  {
+   "rule": "win_service_install_suspicious",
+   "level": "high",
+   "targets": [
+    "T1021",
+    "T1543",
+    "T1569"
+   ],
+   "runs_with_target_technique": 5,
+   "detected": 2,
+   "recall_on_target_runs": 0.4,
+   "fires_on_off_target_runs": 1,
+   "off_target_runs": 53,
+   "off_target_rate": 0.019,
+   "alerts_total": 6,
+   "alerts_per_10k_events": 0.12
+  },
+  {
+   "rule": "win_winrm_remote_shell",
+   "level": "medium",
+   "targets": [
+    "T1021"
+   ],
+   "runs_with_target_technique": 4,
+   "detected": 1,
+   "recall_on_target_runs": 0.25,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 54,
+   "off_target_rate": 0.0,
+   "alerts_total": 1,
+   "alerts_per_10k_events": 0.02
+  },
+  {
+   "rule": "win_wmi_event_subscription",
+   "level": "high",
+   "targets": [
+    "T1546"
+   ],
+   "runs_with_target_technique": 1,
+   "detected": 1,
+   "recall_on_target_runs": 1.0,
+   "fires_on_off_target_runs": 0,
+   "off_target_runs": 57,
+   "off_target_rate": 0.0,
+   "alerts_total": 3,
+   "alerts_per_10k_events": 0.06
+  },
+  {
+   "rule": "win_wmi_remote_execution",
+   "level": "high",
+   "targets": [
+    "T1047"
+   ],
+   "runs_with_target_technique": 3,
+   "detected": 3,
+   "recall_on_target_runs": 1.0,
+   "fires_on_off_target_runs": 1,
+   "off_target_runs": 55,
+   "off_target_rate": 0.018,
+   "alerts_total": 5,
+   "alerts_per_10k_events": 0.1
+  }
+ ],
+ "uncovered_techniques_in_runs": {
+  "T1550": "1",
+  "T1197": "1",
+  "T1112": "1",
+  "T1222": "1",
+  "T1518": "1",
+  "T1012": "1",
+  "T1049": "1",
+  "T1574": "1",
+  "T1037": "1",
+  "T1548": "1"
+ },
+ "missed_runs": [
+  {
+   "run": "credential_access__empire_mimikatz_backupkeys_dcerpc_smb_lsarpc",
+   "tool": "empire",
+   "bases": [
+    "T1003"
+   ]
+  },
+  {
+   "run": "credential_access__empire_mimikatz_extract_keys",
+   "tool": "empire",
+   "bases": [
+    "T1003"
+   ]
+  },
+  {
+   "run": "credential_access__empire_mimikatz_sam_access",
+   "tool": "empire",
+   "bases": [
+    "T1003"
+   ]
+  },
+  {
+   "run": "credential_access__empire_ninjacopy_dumping_ntds_dit_file",
+   "tool": "empire",
+   "bases": [
+    "T1003"
+   ]
+  },
+  {
+   "run": "credential_access__empire_shell_rubeus_asktgt_createnetonly",
+   "tool": "empire",
+   "bases": [
+    "T1003"
+   ]
+  },
+  {
+   "run": "credential_access__empire_shell_rubeus_asktgt_ptt",
+   "tool": "empire",
+   "bases": [
+    "T1003"
+   ]
+  },
+  {
+   "run": "defense_evasion__cmd_process_herpaderping_snippingtool",
+   "tool": "cmd",
+   "bases": [
+    "T1055"
+   ]
+  },
+  {
+   "run": "defense_evasion__cmd_psh_stop_netprofm_eventlog_before_reboot",
+   "tool": "cmd",
+   "bases": [
+    "T1562"
+   ]
+  },
+  {
+   "run": "discovery__empire_find_localadmin_smb_svcctl_OpenSCManager",
+   "tool": "empire",
+   "bases": [
+    "T1069"
+   ]
+  },
+  {
+   "run": "execution__cmd_sharpview_pcre_net",
+   "tool": "cmd",
+   "bases": [
+    "T1059"
+   ]
+  },
+  {
+   "run": "lateral_movement__empire_dcom_shellwindows_stager",
+   "tool": "empire",
+   "bases": [
+    "T1021"
+   ]
+  }
+ ]
+}

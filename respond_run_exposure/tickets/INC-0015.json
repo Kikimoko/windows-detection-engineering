@@ -1,0 +1,60 @@
+{
+ "incident": "INC-0015",
+ "host": "pedro-computer",
+ "first_seen": "2022-08-18 13:57:46.723000",
+ "last_seen": "2022-08-18 13:58:41.957000",
+ "alerts": 2,
+ "rules_fired": [
+  "Defences disabled from the command line"
+ ],
+ "attack_ids": [
+  "T1562.001",
+  "T1562.002"
+ ],
+ "tactics": [
+  "Defense Evasion"
+ ],
+ "users": [
+  "PEDRO-COMPUTER\\pedro-admin"
+ ],
+ "priority": "P1",
+ "summary": "2 alerts on host pedro-computer between 2022-08-18 13:57:46.723000 and 2022-08-18 13:58:41.957000 across 1 rule(s): Defences disabled from the command line. ATT&CK: T1562.001, T1562.002 (Defense Evasion). Policy priority P1. Host exposure CRITICAL: CVE-2020-0796 (known exploited). Priority raised from P2 to P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Patch CVE-2020-0796 on pedro-computer ahead of routine patching (known exploited in the wild, used in ransomware; CISA due 2022-08-10 - already overdue when the incident happened; asset criticality medium)",
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ],
+ "exposure": {
+  "tier": "CRITICAL",
+  "open_cves": 1,
+  "kev_cves": [
+   "CVE-2020-0796"
+  ],
+  "top": [
+   {
+    "cve": "CVE-2020-0796",
+    "kev": true,
+    "cvss": 10.0,
+    "risk_score": 0.229,
+    "relevant": false,
+    "ransomware": true,
+    "criticality": "medium",
+    "internet_facing": false,
+    "patch_due": "2022-08-10",
+    "overdue_at_incident": true
+   }
+  ],
+  "relevant": false,
+  "skipped": {
+   "not_yet_published": 0,
+   "patched_before": 0,
+   "not_yet_seen": 0
+  },
+  "cves_without_score": [],
+  "would_raise": true,
+  "raise_granted": true,
+  "raise_denied": false
+ },
+ "alert_priority_before_exposure": "P2",
+ "containment": "AWAITING_APPROVAL"
+}

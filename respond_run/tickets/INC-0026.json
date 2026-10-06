@@ -1,0 +1,23 @@
+{
+ "incident": "INC-0026",
+ "host": "workstation5",
+ "first_seen": "2020-08-07 14:32:56.540000",
+ "last_seen": "2020-08-07 14:39:50.022000",
+ "alerts": 2,
+ "rules_fired": [
+  "Suspicious process access to LSASS"
+ ],
+ "attack_ids": [
+  "T1003.001"
+ ],
+ "tactics": [
+  "Credential Access"
+ ],
+ "users": [],
+ "priority": "P2",
+ "summary": "2 alerts on host workstation5 between 2020-08-07 14:32:56.540000 and 2020-08-07 14:39:50.022000 across 1 rule(s): Suspicious process access to LSASS. ATT&CK: T1003.001 (Credential Access). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence"
+ ]
+}

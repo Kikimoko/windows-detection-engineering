@@ -1,0 +1,31 @@
+{
+ "incident": "INC-0077",
+ "host": "workstation6",
+ "first_seen": "2020-09-20 21:09:11.252000",
+ "last_seen": "2020-09-20 21:09:11.527000",
+ "alerts": 3,
+ "rules_fired": [
+  "Suspicious PowerShell command line",
+  "Process spawned by WinRM host process"
+ ],
+ "attack_ids": [
+  "T1021.006",
+  "T1059.001"
+ ],
+ "tactics": [
+  "Execution",
+  "Lateral Movement"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo",
+  "pgustavo"
+ ],
+ "priority": "P1",
+ "summary": "3 alerts on host workstation6 between 2020-09-20 21:09:11.252000 and 2020-09-20 21:09:11.527000 across 2 rule(s): Suspicious PowerShell command line; Process spawned by WinRM host process. ATT&CK: T1021.006, T1059.001 (Execution, Lateral Movement). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Collect the script/command content; identify the parent process",
+  "Identify the source host and account; review admin-share and remote-service activity; check other targets"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

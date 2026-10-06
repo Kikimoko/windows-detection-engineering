@@ -1,0 +1,24 @@
+{
+ "incident": "INC-0022",
+ "host": "pedro01",
+ "first_seen": "2022-08-08 12:48:39.394000",
+ "last_seen": "2022-08-08 12:48:39.394000",
+ "alerts": 2,
+ "rules_fired": [
+  "Event log cleared"
+ ],
+ "attack_ids": [
+  "T1070.001",
+  "T1562.002"
+ ],
+ "tactics": [
+  "Defense Evasion"
+ ],
+ "users": [],
+ "priority": "P2",
+ "summary": "2 alerts on host pedro01 between 2022-08-08 12:48:39.394000 and 2022-08-08 12:48:39.394000 across 1 rule(s): Event log cleared. ATT&CK: T1070.001, T1562.002 (Defense Evasion). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ]
+}

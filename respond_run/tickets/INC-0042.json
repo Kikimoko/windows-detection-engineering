@@ -1,0 +1,27 @@
+{
+ "incident": "INC-0042",
+ "host": "workstation5",
+ "first_seen": "2020-10-19 04:28:31.089000",
+ "last_seen": "2020-10-19 04:28:31.089000",
+ "alerts": 1,
+ "rules_fired": [
+  "Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump)"
+ ],
+ "attack_ids": [
+  "T1003.001",
+  "T1003.002",
+  "T1003.003"
+ ],
+ "tactics": [
+  "Credential Access"
+ ],
+ "users": [
+  "WORKSTATION5\\wardog"
+ ],
+ "priority": "P2",
+ "summary": "1 alerts on host workstation5 between 2020-10-19 04:28:31.089000 and 2020-10-19 04:28:31.089000 across 1 rule(s): Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump). ATT&CK: T1003.001, T1003.002, T1003.003 (Credential Access). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence"
+ ]
+}

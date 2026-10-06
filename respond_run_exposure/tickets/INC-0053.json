@@ -1,0 +1,25 @@
+{
+ "incident": "INC-0053",
+ "host": "workstation5",
+ "first_seen": "2020-10-22 06:21:37.849000",
+ "last_seen": "2020-10-22 06:21:37.849000",
+ "alerts": 1,
+ "rules_fired": [
+  "Signed binary proxy execution with suspicious arguments"
+ ],
+ "attack_ids": [
+  "T1218"
+ ],
+ "tactics": [
+  "Defense Evasion"
+ ],
+ "users": [
+  "WORKSTATION5\\wardog"
+ ],
+ "priority": "P2",
+ "summary": "1 alerts on host workstation5 between 2020-10-22 06:21:37.849000 and 2020-10-22 06:21:37.849000 across 1 rule(s): Signed binary proxy execution with suspicious arguments. ATT&CK: T1218 (Defense Evasion). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers"
+ ]
+}

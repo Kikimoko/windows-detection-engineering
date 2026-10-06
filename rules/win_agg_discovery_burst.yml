@@ -1,0 +1,26 @@
+title: Burst of distinct discovery commands on one host
+id: win_agg_discovery_burst
+status: experimental
+version: 1
+description: 4 or more distinct discovery command lines (whoami, net, nltest, ipconfig, systeminfo, tasklist...) on one host within 60 seconds. Aggregation rule.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID:
+    - 1
+    - 4688
+    CommandLine|re: (?i)\b(whoami|net1?|nltest|ipconfig|systeminfo|tasklist|quser|qwinsta|arp|hostname|nslookup|netstat)(\.exe)?\"?(\s|$)
+  timeframe: 60s
+  condition: selection | count(CommandLine) by Hostname >= 4
+falsepositives:
+- Admins running inventory scripts
+- Helpdesk triage
+level: medium
+tags:
+- attack.discovery
+- attack.t1087
+- attack.t1069
+- attack.t1082
+- attack.t1016
+- attack.t1033

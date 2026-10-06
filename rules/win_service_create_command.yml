@@ -1,0 +1,19 @@
+title: Service created from the command line
+id: win_service_create_command
+status: experimental
+description: sc create / New-Service.
+logsource:
+  product: windows
+detection:
+  selection:
+    CommandLine|re: (?i)\bsc(\.exe)?\s+(\\\\\S+\s+)?(create|config)\s
+  selection_ps:
+    CommandLine|contains: new-service
+  condition: 1 of selection*
+falsepositives:
+- Administrative tools
+level: medium
+tags:
+- attack.persistence
+- attack.t1543.003
+version: 2

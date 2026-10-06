@@ -1,0 +1,25 @@
+{
+ "incident": "INC-0071",
+ "host": "workstation6",
+ "first_seen": "2020-09-02 01:43:49.202000",
+ "last_seen": "2020-09-02 01:44:40.202000",
+ "alerts": 6,
+ "rules_fired": [
+  "WMI event filter/consumer created"
+ ],
+ "attack_ids": [
+  "T1546.003"
+ ],
+ "tactics": [
+  "Persistence"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo"
+ ],
+ "priority": "P2",
+ "summary": "6 alerts on host workstation6 between 2020-09-02 01:43:49.202000 and 2020-09-02 01:44:40.202000 across 1 rule(s): WMI event filter/consumer created. ATT&CK: T1546.003 (Persistence). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Enumerate and remove new tasks/services/run keys; capture the binaries"
+ ]
+}

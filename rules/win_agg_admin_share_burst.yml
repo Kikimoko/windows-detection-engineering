@@ -1,0 +1,21 @@
+title: Repeated admin-share access from one source
+id: win_agg_admin_share_burst
+status: experimental
+version: 1
+description: 3 or more Security 5145 checks on ADMIN$ or C$ from the same source address within 60 seconds by a non-machine account. Aggregation rule.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 5145
+    Message|re: Share Name:\s+\\\\\*\\(ADMIN|C)\$
+  filter_machine:
+    Message|re: Account Name:\t+[^\r\n]*\$\r
+  timeframe: 60s
+  condition: selection and not filter_machine | count() by IpAddress >= 3
+falsepositives:
+- Backup and software deployment servers
+level: high
+tags:
+- attack.lateral_movement
+- attack.t1021.002

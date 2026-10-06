@@ -1,0 +1,20 @@
+title: WMI event filter/consumer created
+id: win_wmi_event_subscription
+status: experimental
+description: Sysmon 19/20/21 - persistence via WMI subscriptions.
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID:
+    - 19
+    - 20
+    - 21
+    Channel|contains: sysmon
+  condition: selection
+falsepositives:
+- Administrative tools
+level: high
+tags:
+- attack.persistence
+- attack.t1546.003

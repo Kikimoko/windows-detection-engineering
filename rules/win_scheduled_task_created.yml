@@ -1,0 +1,23 @@
+title: Scheduled task created
+id: win_scheduled_task_created
+status: experimental
+description: schtasks /create or Security 4698 by a non-system account.
+logsource:
+  product: windows
+detection:
+  selection_cmd:
+    CommandLine|contains|all:
+    - schtasks
+    - /create
+  selection_evt:
+    EventID: 4698
+  filter_system:
+    Message|re: Account Name:\t+[^\r\n]*\$\r
+  condition: selection_cmd or (selection_evt and not filter_system)
+falsepositives:
+- Software updaters
+level: medium
+tags:
+- attack.persistence
+- attack.execution
+- attack.t1053.005

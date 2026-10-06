@@ -1,0 +1,34 @@
+{
+ "incident": "INC-0035",
+ "host": "workstation5",
+ "first_seen": "2020-09-21 21:58:17.268000",
+ "last_seen": "2020-09-21 22:01:15.268000",
+ "alerts": 6,
+ "rules_fired": [
+  "Scheduled task created",
+  "Registry Run key modified",
+  "Suspicious PowerShell command line"
+ ],
+ "attack_ids": [
+  "T1053.005",
+  "T1059.001",
+  "T1547.001"
+ ],
+ "tactics": [
+  "Execution",
+  "Persistence"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo",
+  "WORKSTATION5$",
+  "pgustavo"
+ ],
+ "priority": "P1",
+ "summary": "6 alerts on host workstation5 between 2020-09-21 21:58:17.268000 and 2020-09-21 22:01:15.268000 across 3 rule(s): Scheduled task created; Registry Run key modified; Suspicious PowerShell command line. ATT&CK: T1053.005, T1059.001, T1547.001 (Execution, Persistence). Policy priority P1.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Collect the script/command content; identify the parent process",
+  "Enumerate and remove new tasks/services/run keys; capture the binaries"
+ ],
+ "containment": "AWAITING_APPROVAL"
+}

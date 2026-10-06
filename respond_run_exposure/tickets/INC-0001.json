@@ -1,0 +1,64 @@
+{
+ "incident": "INC-0001",
+ "host": "dc01",
+ "first_seen": "2023-07-19 05:32:49.039000",
+ "last_seen": "2023-07-19 05:33:01.648000",
+ "alerts": 2,
+ "rules_fired": [
+  "Event log cleared",
+  "Suspicious PowerShell command line"
+ ],
+ "attack_ids": [
+  "T1059.001",
+  "T1070.001",
+  "T1562.002"
+ ],
+ "tactics": [
+  "Defense Evasion",
+  "Execution"
+ ],
+ "users": [
+  "Administrator"
+ ],
+ "priority": "P1",
+ "summary": "2 alerts on host dc01 between 2023-07-19 05:32:49.039000 and 2023-07-19 05:33:01.648000 across 2 rule(s): Event log cleared; Suspicious PowerShell command line. ATT&CK: T1059.001, T1070.001, T1562.002 (Defense Evasion, Execution). Policy priority P1. Host exposure CRITICAL: CVE-2020-1472 (known exploited, relevant to the observed tactics).",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Patch CVE-2020-1472 on dc01 ahead of routine patching (known exploited in the wild, used in ransomware, relevant to this incident; CISA due 2022-05-03 - already overdue when the incident happened; asset criticality critical)",
+  "Re-enable logging/AV; verify log integrity; search for the tampering command on peers",
+  "Collect the script/command content; identify the parent process"
+ ],
+ "exposure": {
+  "tier": "CRITICAL",
+  "open_cves": 1,
+  "kev_cves": [
+   "CVE-2020-1472"
+  ],
+  "top": [
+   {
+    "cve": "CVE-2020-1472",
+    "kev": true,
+    "cvss": 5.5,
+    "risk_score": 0.003,
+    "relevant": true,
+    "ransomware": true,
+    "criticality": "critical",
+    "internet_facing": false,
+    "patch_due": "2022-05-03",
+    "overdue_at_incident": true
+   }
+  ],
+  "relevant": true,
+  "skipped": {
+   "not_yet_published": 0,
+   "patched_before": 0,
+   "not_yet_seen": 0
+  },
+  "cves_without_score": [],
+  "would_raise": false,
+  "raise_granted": false,
+  "raise_denied": false
+ },
+ "alert_priority_before_exposure": "P1",
+ "containment": "REFUSED: critical host (domain controller) - human-only decision"
+}

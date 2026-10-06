@@ -1,0 +1,78 @@
+{
+ "draws_per_cell": 20,
+ "hosts": 9,
+ "incidents": 88,
+ "p1_share_without_exposure": 0.273,
+ "scenarios": [
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.05,
+   "raise_budget": 1.0,
+   "incidents_raised_mean": 0.027,
+   "incidents_raised_max": 0.193,
+   "p1_share_mean": 0.295
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.05,
+   "raise_budget": 0.25,
+   "incidents_raised_mean": 0.027,
+   "incidents_raised_max": 0.193,
+   "p1_share_mean": 0.295
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.1,
+   "raise_budget": 1.0,
+   "incidents_raised_mean": 0.048,
+   "incidents_raised_max": 0.193,
+   "p1_share_mean": 0.313
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.1,
+   "raise_budget": 0.25,
+   "incidents_raised_mean": 0.048,
+   "incidents_raised_max": 0.193,
+   "p1_share_mean": 0.313
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.25,
+   "raise_budget": 1.0,
+   "incidents_raised_mean": 0.113,
+   "incidents_raised_max": 0.42,
+   "p1_share_mean": 0.379
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.25,
+   "raise_budget": 0.25,
+   "incidents_raised_mean": 0.088,
+   "incidents_raised_max": 0.25,
+   "p1_share_mean": 0.355
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.5,
+   "raise_budget": 1.0,
+   "incidents_raised_mean": 0.315,
+   "incidents_raised_max": 0.557,
+   "p1_share_mean": 0.567
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 0.5,
+   "raise_budget": 0.25,
+   "incidents_raised_mean": 0.194,
+   "incidents_raised_max": 0.25,
+   "p1_share_mean": 0.453
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 1.0,
+   "raise_budget": 1.0,
+   "incidents_raised_mean": 0.584,
+   "incidents_raised_max": 0.716,
+   "p1_share_mean": 0.823
+  },
+  {
+   "share_of_hosts_with_a_known_exploited_cve": 1.0,
+   "raise_budget": 0.25,
+   "incidents_raised_mean": 0.25,
+   "incidents_raised_max": 0.25,
+   "p1_share_mean": 0.508
+  }
+ ]
+}

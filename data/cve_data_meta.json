@@ -1,0 +1,12 @@
+{
+ "kev_catalog_version": "2026.09.30",
+ "kev_entries": 1730,
+ "kev_built": "2026-09-30",
+ "scores_built": "2026-09-30",
+ "scored_cves": 101350,
+ "cve_published_range": [
+  "2018-01-08",
+  "2026-09-29"
+ ],
+ "model_train_until": "2022-12-31"
+}

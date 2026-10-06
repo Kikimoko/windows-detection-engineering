@@ -1,0 +1,28 @@
+{
+ "incident": "INC-0034",
+ "host": "workstation5",
+ "first_seen": "2020-09-21 07:15:45.393000",
+ "last_seen": "2020-09-21 07:15:45.693000",
+ "alerts": 3,
+ "rules_fired": [
+  "Scheduled task created"
+ ],
+ "attack_ids": [
+  "T1053.005"
+ ],
+ "tactics": [
+  "Execution",
+  "Persistence"
+ ],
+ "users": [
+  "THESHIRE\\pgustavo",
+  "pgustavo"
+ ],
+ "priority": "P2",
+ "summary": "3 alerts on host workstation5 between 2020-09-21 07:15:45.393000 and 2020-09-21 07:15:45.693000 across 1 rule(s): Scheduled task created. ATT&CK: T1053.005 (Execution, Persistence). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Collect the script/command content; identify the parent process",
+  "Enumerate and remove new tasks/services/run keys; capture the binaries"
+ ]
+}

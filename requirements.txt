@@ -1,0 +1,5 @@
+pandas
+numpy
+pyyaml
+pytest
+# optional, only for the binary-triage step: scikit-learn + joblib at the version the malware-classifier model was saved with; yara-python for YARA rules

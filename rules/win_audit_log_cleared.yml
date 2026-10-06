@@ -1,0 +1,24 @@
+title: Event log cleared
+id: win_audit_log_cleared
+status: experimental
+description: Security 1102 or System 104, or wevtutil cl.
+logsource:
+  product: windows
+detection:
+  selection_evt:
+    EventID:
+    - 1102
+    - 104
+  selection_cmd:
+    CommandLine|contains:
+    - wevtutil cl
+    - wevtutil.exe cl
+    - Clear-EventLog
+  condition: 1 of selection_*
+falsepositives:
+- Planned log rotation by admins
+level: high
+tags:
+- attack.defense_evasion
+- attack.t1070.001
+- attack.t1562.002

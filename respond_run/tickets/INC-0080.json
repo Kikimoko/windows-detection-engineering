@@ -1,0 +1,27 @@
+{
+ "incident": "INC-0080",
+ "host": "workstation6",
+ "first_seen": "2020-09-21 08:09:15.340000",
+ "last_seen": "2020-09-21 08:09:15.453000",
+ "alerts": 4,
+ "rules_fired": [
+  "Account and group discovery commands"
+ ],
+ "attack_ids": [
+  "T1069",
+  "T1087"
+ ],
+ "tactics": [
+  "Discovery"
+ ],
+ "users": [
+  "THESHIRE\\sbeavers",
+  "sbeavers"
+ ],
+ "priority": "P3",
+ "summary": "4 alerts on host workstation6 between 2020-09-21 08:09:15.340000 and 2020-09-21 08:09:15.453000 across 1 rule(s): Account and group discovery commands. ATT&CK: T1069, T1087 (Discovery). Policy priority P3.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Correlate with the account's prior activity; watch for follow-on actions"
+ ]
+}

@@ -1,0 +1,89 @@
+// win_admin_share_access | Network access to administrative shares | T1021.002 | level=medium
+SecurityEvent
+| where ((EventID == 5145 and (Message contains @"\*\ADMIN$" or Message contains @"\*\C$")) and not(Message matches regex @"(?i)Account Name:\t+[^\r\n]*\$\r"))
+
+// win_agg_admin_share_burst | Repeated admin-share access from one source | T1021.002 | level=high
+SecurityEvent
+| where ((EventID == 5145 and Message matches regex @"(?i)Share Name:\s+\\\\\*\\(ADMIN|C)\$") and not(Message matches regex @"(?i)Account Name:\t+[^\r\n]*\$\r"))
+| summarize n = count() by IpAddress, bin(TimeGenerated, 60s)
+| where n >= 3    // tumbling-window approximation
+
+// win_agg_discovery_burst | Burst of distinct discovery commands on one host | T1016,T1033,T1069,T1082,T1087 | level=medium
+SecurityEvent
+| where ((EventID == 1 or EventID == 4688) and CommandLine matches regex @"(?i)(?i)\b(whoami|net1?|nltest|ipconfig|systeminfo|tasklist|quser|qwinsta|arp|hostname|nslookup|netstat)(\.exe)?\""?(\s|$)")
+| summarize n = dcount(CommandLine) by Hostname, bin(TimeGenerated, 60s)
+| where n >= 4    // tumbling-window approximation
+
+// win_agg_logon_failure_burst | Burst of failed logons on one host | T1110 | level=medium
+SecurityEvent
+| where EventID == 4625
+| summarize n = count() by Hostname, bin(TimeGenerated, 60s)
+| where n >= 5    // tumbling-window approximation
+
+// win_audit_log_cleared | Event log cleared | T1070.001,T1562.002 | level=high
+SecurityEvent
+| where ((EventID == 1102 or EventID == 104) or (CommandLine contains @"wevtutil cl" or CommandLine contains @"wevtutil.exe cl" or CommandLine contains @"Clear-EventLog"))
+
+// win_credential_dump_commands | Credential dumping command lines (ntdsutil, reg save SAM, shadow copy, comsvcs MiniDump) | T1003.001,T1003.002,T1003.003 | level=high
+SecurityEvent
+| where ((CommandLine contains @"ntdsutil" or CommandLine contains @"ntds.dit") or CommandLine matches regex @"(?i)(?i)\breg(\.exe)?[\""']?\s+(save|export)\s+\S*hk(lm|ey_local_machine)\\(sam|security|system)\b" or (CommandLine contains @"vssadmin" and CommandLine contains @"create shadow") or (CommandLine contains @"comsvcs" and CommandLine contains @"minidump") or (CommandLine contains @"sekurlsa" or CommandLine contains @"lsadump::" or CommandLine contains @"invoke-mimikatz") or (CommandLine contains @"esentutl" and CommandLine contains @"/vss"))
+
+// win_dcsync_replication_rights | Directory replication rights used (possible DCSync) | T1003.006 | level=high
+SecurityEvent
+| where (((EventID == 4662 and (Message contains @"1131f6aa-9c07-11d1-f79f-00c04fc2dcd2" or Message contains @"1131f6ad-9c07-11d1-f79f-00c04fc2dcd2" or Message contains @"89e95b76-444d-4c62-991a-0facbeda640c")) or (EventID == 4662 and AccessMask =~ @"0x100" and ObjectName startswith @"%{")) and not(SubjectUserName endswith @"$"))
+
+// win_defender_registry_disabled | Windows Defender disabled in the registry | T1562.001 | level=high
+SecurityEvent
+| where (EventID == 13 and (TargetObject contains @"\Windows Defender\" or TargetObject contains @"\Policies\Microsoft\Windows Defender") and (TargetObject endswith @"\DisableAntiSpyware" or TargetObject endswith @"\DisableRealtimeMonitoring" or TargetObject endswith @"\DisableBehaviorMonitoring" or TargetObject endswith @"\DisableIOAVProtection") and Details contains @"0x00000001" and Channel contains @"sysmon")
+
+// win_domain_discovery_commands | Account and group discovery commands | T1069,T1087 | level=low
+SecurityEvent
+| where (CommandLine matches regex @"(?i)(?i)\bnet1?(\.exe)?[\""']?\s+(group|localgroup|user|accounts)\b" or (CommandLine contains @"whoami /groups" or CommandLine contains @"whoami /all" or CommandLine contains @"nltest /dclist" or CommandLine contains @"nltest /domain_trusts" or CommandLine contains @"dsquery" or CommandLine contains @"get-aduser" or CommandLine contains @"get-adgroupmember"))
+
+// win_impair_defenses_commands | Defences disabled from the command line | T1562.001,T1562.002 | level=high
+SecurityEvent
+| where ((CommandLine contains @"auditpol" and CommandLine contains @"/remove") or (CommandLine contains @"auditpol" and CommandLine contains @"/clear") or (CommandLine contains @"set-mppreference" and CommandLine contains @"disable") or (CommandLine contains @"sc stop windefend" or CommandLine contains @"net stop windefend" or CommandLine contains @"sc config sysmon" or CommandLine contains @"sc stop sysmon" or CommandLine contains @"fltmc unload sysmondrv") or (CommandLine contains @"DisableAntiSpyware" or CommandLine contains @"DisableRealtimeMonitoring") or CommandLine matches regex @"(?i)(?i)(wevtutil[\""']?\s+(sl|set-log)\s.*(/lfn|/logfilename|/e:false|/enabled:false)|\breg(\.exe)?[\""']?\s+add\s.*\\(services\\eventlog|control\\minint)\b|(sc|net)(\.exe)?\s+(stop|config)\s+eventlog)" or (EventID == 13 and Channel contains @"sysmon" and TargetObject matches regex @"(?i)(?i)\\services\\eventlog\\[^\\]+\\(file|maxsize|retention)$|\\services\\eventlog\\start$|\\control\\minint\\"))
+
+// win_lolbin_proxy_execution | Signed binary proxy execution with suspicious arguments | T1218 | level=high
+SecurityEvent
+| where ((Image endswith @"\rundll32.exe" or Image endswith @"\regsvr32.exe" or Image endswith @"\mshta.exe" or Image endswith @"\msiexec.exe" or Image endswith @"\cmstp.exe" or Image endswith @"\installutil.exe" or Image endswith @"\msbuild.exe" or Image endswith @"\odbcconf.exe" or Image endswith @"\ieexec.exe") and (CommandLine contains @"http://" or CommandLine contains @"https://" or CommandLine contains @"scrobj.dll" or CommandLine contains @"javascript:" or CommandLine contains @"vbscript:" or CommandLine contains @"/i:http" or CommandLine contains @"-sta" or CommandLine contains @"advpack.dll" or CommandLine contains @"pcwutl.dll" or CommandLine contains @"url.dll,fileprotocolhandler" or CommandLine contains @".sct" or CommandLine contains @"/s /n /u" or CommandLine contains @"-shellcode" or CommandLine contains @"comsvcs.dll"))
+
+// win_lsass_access_suspicious | Suspicious process access to LSASS | T1003.001 | level=high
+SecurityEvent
+| where ((EventID == 10 and TargetImage endswith @"\lsass.exe" and (GrantedAccess =~ @"0x1010" or GrantedAccess =~ @"0x1410" or GrantedAccess =~ @"0x1438" or GrantedAccess =~ @"0x143a" or GrantedAccess =~ @"0x1038" or GrantedAccess =~ @"0x1fffff" or GrantedAccess =~ @"0x1f3fff" or GrantedAccess =~ @"0x1f1fff") and Channel contains @"sysmon") and not((SourceImage contains @"\svchost.exe" or SourceImage contains @"\wininit.exe" or SourceImage contains @"\csrss.exe" or SourceImage contains @"\VBoxService.exe" or SourceImage contains @"\MsMpEng.exe" or SourceImage contains @"\WindowsAzure\" or SourceImage contains @"\Packages\Plugins\" or SourceImage contains @"\taskmgr.exe" or SourceImage contains @"\lsm.exe" or SourceImage contains @"\services.exe" or SourceImage contains @"\wmiprvse.exe" or SourceImage contains @"\CollectGuestLogs.exe" or SourceImage contains @"\AntimalwareConfig.exe" or SourceImage contains @"\WaAppAgent.exe")))
+
+// win_powershell_suspicious_command | Suspicious PowerShell command line | T1059.001 | level=medium
+SecurityEvent
+| where (((Image endswith @"\powershell.exe" or Image endswith @"\pwsh.exe") or (NewProcessName endswith @"\powershell.exe" or NewProcessName endswith @"\pwsh.exe")) and (CommandLine contains @" -enc " or CommandLine contains @"-encodedcommand" or CommandLine contains @"downloadstring" or CommandLine contains @"downloadfile" or CommandLine contains @"iex(" or CommandLine contains @"iex (" or CommandLine contains @"invoke-expression" or CommandLine contains @"-windowstyle hidden" or CommandLine contains @"-w hidden" or CommandLine contains @"bypass" or CommandLine contains @"frombase64string" or CommandLine contains @"net.webclient"))
+
+// win_remote_thread_injection | CreateRemoteThread into another process | T1055 | level=high
+SecurityEvent
+| where (EventID == 8 and (SourceImage endswith @"\powershell.exe" or SourceImage endswith @"\cmd.exe" or SourceImage endswith @"\rundll32.exe" or SourceImage endswith @"\wscript.exe" or SourceImage endswith @"\cscript.exe" or SourceImage endswith @"\mshta.exe" or SourceImage endswith @"\regsvr32.exe") and Channel contains @"sysmon")
+
+// win_run_key_persistence | Registry Run key modified | T1547.001 | level=medium
+SecurityEvent
+| where ((EventID == 13 and (TargetObject contains @"\CurrentVersion\Run\" or TargetObject contains @"\CurrentVersion\RunOnce\") and Channel contains @"sysmon") and not((Image contains @"\msiexec.exe" or Image contains @"\OneDriveSetup.exe" or Image contains @"\Teams" or Image contains @"\MicrosoftEdgeUpdate" or Image contains @"\svchost.exe" or Image contains @"\WindowsApps\")))
+
+// win_scheduled_task_created | Scheduled task created | T1053.005 | level=medium
+SecurityEvent
+| where ((CommandLine contains @"schtasks" and CommandLine contains @"/create") or (EventID == 4698 and not(Message matches regex @"(?i)Account Name:\t+[^\r\n]*\$\r")))
+
+// win_service_create_command | Service created from the command line | T1543.003 | level=medium
+SecurityEvent
+| where (CommandLine matches regex @"(?i)(?i)\bsc(\.exe)?\s+(\\\\\S+\s+)?(create|config)\s" or CommandLine contains @"new-service")
+
+// win_service_install_suspicious | Service installed from an unusual path or known remote-exec service | T1021.002,T1543.003,T1569.002 | level=high
+SecurityEvent
+| where ((EventID == 7045 or EventID == 4697) and (Message contains @"PSEXESVC" or Message contains @"\\127.0.0.1\" or Message contains @"\ADMIN$\" or Message contains @"%COMSPEC%" or Message contains @"\Temp\" or Message contains @"\AppData\" or Message contains @"GruntHTTP" or Message contains @"powershell" or Message contains @"cmd.exe /c"))
+
+// win_winrm_remote_shell | Process spawned by WinRM host process | T1021.006 | level=medium
+SecurityEvent
+| where ParentImage endswith @"\wsmprovhost.exe"
+
+// win_wmi_event_subscription | WMI event filter/consumer created | T1546.003 | level=high
+SecurityEvent
+| where ((EventID == 19 or EventID == 20 or EventID == 21) and Channel contains @"sysmon")
+
+// win_wmi_remote_execution | Process creation via WMI | T1047 | level=high
+SecurityEvent
+| where ((ParentImage endswith @"\wmiprvse.exe" and (Image endswith @"\cmd.exe" or Image endswith @"\powershell.exe" or Image endswith @"\rundll32.exe" or Image endswith @"\mshta.exe")) or (CommandLine contains @"wmic" and CommandLine contains @"process call create") or (CommandLine contains @"wmic" and CommandLine contains @"/node:"))

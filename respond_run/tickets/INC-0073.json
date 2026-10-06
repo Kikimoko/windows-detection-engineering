@@ -1,0 +1,27 @@
+{
+ "incident": "INC-0073",
+ "host": "workstation6",
+ "first_seen": "2020-09-17 21:46:15.418000",
+ "last_seen": "2020-09-17 21:46:15.418000",
+ "alerts": 1,
+ "rules_fired": [
+  "Scheduled task created"
+ ],
+ "attack_ids": [
+  "T1053.005"
+ ],
+ "tactics": [
+  "Execution",
+  "Persistence"
+ ],
+ "users": [
+  "sbeavers"
+ ],
+ "priority": "P2",
+ "summary": "1 alerts on host workstation6 between 2020-09-17 21:46:15.418000 and 2020-09-17 21:46:15.418000 across 1 rule(s): Scheduled task created. ATT&CK: T1053.005 (Execution, Persistence). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Collect the script/command content; identify the parent process",
+  "Enumerate and remove new tasks/services/run keys; capture the binaries"
+ ]
+}

@@ -1,0 +1,9 @@
+host,cve_id,criticality,internet_facing,first_seen,patched_date,owner,source
+MORDORDC,CVE-2020-1472,critical,no,2019-01-01,,dc-team,illustrative
+DC01,CVE-2020-1472,critical,no,2019-01-01,,dc-team,illustrative
+WORKSTATION5,CVE-2021-34527,medium,no,2019-01-01,,it-ops,illustrative
+WORKSTATION6,CVE-2021-28481,low,no,2019-01-01,,it-ops,illustrative
+pedro-computer,CVE-2020-0796,medium,no,2019-01-01,,it-ops,illustrative
+Pedro01,CVE-2021-41367,low,no,2019-01-01,,it-ops,illustrative
+DESKTOP-CQF82L6,CVE-2019-1025,low,no,2019-01-01,,it-ops,illustrative
+MXS01,CVE-2021-26855,high,yes,2019-01-01,,mail-team,illustrative

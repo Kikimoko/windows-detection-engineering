@@ -1,0 +1,25 @@
+{
+ "incident": "INC-0010",
+ "host": "mordordc",
+ "first_seen": "2020-09-21 22:59:08.718000",
+ "last_seen": "2020-09-21 22:59:08.718000",
+ "alerts": 3,
+ "rules_fired": [
+  "Directory replication rights used (possible DCSync)"
+ ],
+ "attack_ids": [
+  "T1003.006"
+ ],
+ "tactics": [
+  "Credential Access"
+ ],
+ "users": [
+  "pgustavo"
+ ],
+ "priority": "P2",
+ "summary": "3 alerts on host mordordc between 2020-09-21 22:59:08.718000 and 2020-09-21 22:59:08.718000 across 1 rule(s): Directory replication rights used (possible DCSync). ATT&CK: T1003.006 (Credential Access). Policy priority P2.",
+ "unsupported_claims": [],
+ "next_steps": [
+  "Reset exposed credentials; hunt for the same technique on other hosts; preserve LSASS/registry evidence"
+ ]
+}
